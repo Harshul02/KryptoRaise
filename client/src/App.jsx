@@ -1,8 +1,11 @@
 import React from 'react'
+import CreateCampaign from './pages/CreateCampaign'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <CreateCampaign />
+    </div>
   )
 }
 
