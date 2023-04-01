@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import CreateCampaign from './pages/CreateCampaign'
-
-const App = () => {
-  return (
-    <div>
-      <CreateCampaign />
-=======
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -30,7 +21,6 @@ const App = () => {
           <Route path="/campaign-details/:id" element={<CampaignDetails />} />
         </Routes>
       </div>
->>>>>>> bbc679b1084cd8662271d597e5808805e2992234
     </div>
   )
 }
