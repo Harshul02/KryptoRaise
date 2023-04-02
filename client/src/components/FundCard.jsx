@@ -43,4 +43,4 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
   )
 }
 
-export default FundCard;
+export default FundCard
