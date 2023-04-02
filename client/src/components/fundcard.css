@@ -1,0 +1,160 @@
+.fund-card {
+    width: 288px;
+    height: auto;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #282828;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .fund-card:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fund-card-image {
+    width: 100%;
+    height: 158px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .fund-card-content {
+    padding: 20px;
+  }
+  
+  .fund-card-tags {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .fund-card-tag-icon {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+  }
+  
+  .fund-card-tag-text {
+    margin-left: 12px;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #808191;
+  }
+  
+  .fund-card-title {
+    margin-bottom: 10px;
+  }
+  
+  .fund-card-title-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+color: white;
+line-height: 26px;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.fund-card-description {
+margin-bottom: 10px;
+}
+
+.fund-card-description-text {
+font-family: 'Epilogue', sans-serif;
+font-size: 14px;
+font-weight: 400;
+color: #808191;
+line-height: 18px;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.fund-card-progress {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.fund-card-amount {
+font-family: 'Epilogue', sans-serif;
+font-size: 14px;
+font-weight: 600;
+color: #b2b3bd;
+line-height: 22px;
+}
+
+.fund-card-raised {
+font-family: 'Epilogue', sans-serif;
+font-size: 12px;
+font-weight: 400;
+color: #808191;
+line-height: 18px;
+max-width: 120px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.fund-card-days {
+font-family: 'Epilogue', sans-serif;
+font-size: 14px;
+font-weight: 600;
+color: #b2b3bd;
+line-height: 22px;
+}
+
+.fund-card-remaining {
+font-family: 'Epilogue', sans-serif;
+font-size: 12px;
+font-weight: 400;
+color: #808191;
+line-height: 18px;
+max-width: 120px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.fund-card-owner {
+display: flex;
+align-items: center;
+}
+
+.fund-card-owner-image {
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background-color: #13131a;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.fund-card-owner-image img {
+width: 50%;
+height: 50%;
+object-fit: contain;
+}
+
+.fund-card-owner-text {
+font-family: 'Epilogue', sans-serif;
+font-size: 12px;
+font-weight: 400;
+color: #808191;
+line-height: 18px;
+margin-left: 12px;
+max-width: 200px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+  

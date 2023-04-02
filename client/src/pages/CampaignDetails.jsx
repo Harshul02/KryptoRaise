@@ -119,7 +119,7 @@ const CampaignDetails = () => {
                 <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p>
               </div>
 
-              <CustomButton 
+              <CustomButton
                 btnType="button"
                 title="Fund Campaign"
                 styles="w-full bg-[#8c6dfd]"
