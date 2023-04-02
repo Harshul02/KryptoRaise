@@ -39,9 +39,11 @@ const CampaignDetails = () => {
 
   return (
     <div>
+   <button onClick={() => navigate(-1)} className="bg-gray-700 text-white px-4 py-2 rounded-md">Back</button>
+
       {isLoading && <Loader />}
 
-      <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
+      <div className="w-full flex md:flex-row flex-col mt-4 gap-[30px]">
         <div className="flex-1 flex-col">
           <img src={state.image} alt="campaign" className="w-full h-[410px] object-cover rounded-xl"/>
           <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
