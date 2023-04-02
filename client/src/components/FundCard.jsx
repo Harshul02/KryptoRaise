@@ -4,6 +4,7 @@ import { daysLeft } from '../utils';
 
 const FundCard = ({ owner, title, description, target, deadline, amountCollected, image, handleClick }) => {
   const remainingDays = daysLeft(deadline);
+  const progressPercentage = Math.floor((amountCollected / target) * 100);
   
   return (
     <div className="sm:w-[288px] w-full rounded-[15px] bg-[#282828] cursor-pointer shadow-lg transform hover:scale-105 transition-all duration-300" onClick={handleClick}>
@@ -21,6 +22,13 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
         <div className="block">
           <h3 className="font-epilogue font-semibold text-[16px] text-white text-left leading-[26px] truncate">{title}</h3>
           <p className="mt-[5px] font-epilogue font-normal text-[#808191] text-left leading-[18px] truncate">{description}</p>
+        </div>
+        <div className="flex flex-col mt-[15px]">
+          <div className="flex items-center justify-between text-[#b2b3bd] text-sm font-semibold">
+            <span>Progress</span>
+            <span>{progressPercentage}%</span>
+          </div>
+          <progress max={target} value={amountCollected} className="w-full h-2 bg-[#3b3b3b] mt-[5px]" style={{ borderRadius: '5px' }} />
         </div>
 
         <div className="flex justify-between flex-wrap mt-[15px] gap-2">
