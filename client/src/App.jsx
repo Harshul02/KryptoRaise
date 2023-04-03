@@ -1,12 +1,21 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { backg } from './assets';
 
 import { Sidebar, Navbar } from './components';
 import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
 
 const App = () => {
+
+  const backgroundImageStyle = {
+    backgroundImage: `url(${backg})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+  };
+
   return (
-    <div className="relative sm:-8 p-4 bg-[#1a1a1a] min-h-screen flex flex-row">
+    <div className="relative sm:-8 p-4 min-h-screen flex flex-row" style={backgroundImageStyle}>
       <div className="sm:flex hidden mr-10 relative">
         <Sidebar />
       </div>
