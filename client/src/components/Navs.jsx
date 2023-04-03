@@ -20,7 +20,7 @@ export default function Navs() {
 
   return (
     <div>
-        <div className="flex justify-between items-center flex-row sticky">
+        <div className="hidden md:block flex justify-between items-center flex-row sticky">
       {/* <Link to="/">
         <Icon styles="w-[52px] h-[52px] bg-[#2c2f32]" imgUrl={logo} />
       </Link> */}
