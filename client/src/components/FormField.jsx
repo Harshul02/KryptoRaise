@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const FormField = ({ labelName, placeholder, inputType, isTextArea, value, handleChange }) => {
   return (
@@ -30,4 +30,4 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, value, handl
   )
 }
 
-export default FormField;
+export default FormField

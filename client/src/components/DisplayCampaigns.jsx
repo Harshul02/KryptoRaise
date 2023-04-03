@@ -36,4 +36,4 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
   )
 }
 
-export default DisplayCampaigns;
+export default DisplayCampaigns
