@@ -43,7 +43,7 @@ const CampaignDetails = () => {
 
       {isLoading && <Loader />}
 
-      <div className="w-full flex md:flex-row flex-col mt-4 gap-[30px]">
+      <div className="w-full flex md:flex-row flex-col mt-4 gap-[30px] ">
         <div className="flex-1 flex-col">
           <img src={state.image} alt="campaign" className="w-full h-[410px] object-cover rounded-xl"/>
           <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
