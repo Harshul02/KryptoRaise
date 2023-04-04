@@ -5,13 +5,46 @@ import { logo, sun } from '../assets';
 import { navlinks } from '../constants';
 
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
-  <div className={`w-[48px] h-[48px] rounded-[10px] ${isActive && isActive === name && 'bg-[#2c2f32]'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClick}>
-    {!isActive ? (
-      <img src={imgUrl} alt="fund_logo" className="w-1/2 h-1/2" />
-    ) : (
-      <img src={imgUrl} alt="fund_logo" className={`w-1/2 h-1/2 ${isActive !== name && 'grayscale'}`} />
-    )}
-  </div>
+  
+<div
+  className={`h-[48px] rounded-[10px] flex justify-center items-center ${
+    !disabled && "cursor-pointer"
+  } ${styles}`}
+  onClick={handleClick}
+  style={{ position: "relative" }}
+>
+  {!isActive ? (
+    <span className="text-white font-medium uppercase">{name}</span>
+  ) : (
+    <span
+      className={`font-medium uppercase ${
+        isActive === name ? "text-yellow-200" : "text-white grayscale"
+      }`}
+      style={{
+        position: "relative",
+        textDecoration: "none",
+        transition: "all 0.2s ease-in-out",
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
+        borderRadius: "10px",
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.textDecoration = "none";
+        e.target.style.transition = "all 0.2s ease-in-out";
+        e.target.style.borderBottom = "2px solid #e9f08a";
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.textDecoration = "none";
+        e.target.style.transition = "all 0.2s ease-in-out";
+        e.target.style.borderBottom = "2px solid transparent";
+      }}
+    >
+      {name}
+    </span>
+  )}
+</div>
+
+
+
 );
 
 export default function Navs() {
@@ -20,13 +53,10 @@ export default function Navs() {
 
   return (
     <div>
-        <div className="hidden md:block flex justify-between items-center flex-row sticky">
-      {/* <Link to="/">
-        <Icon styles="w-[52px] h-[52px] bg-[#2c2f32]" imgUrl={logo} />
-      </Link> */}
+        <div className="hidden sm:flex  justify-between items-center flex-row sticky ml-12">
 
-      <div className="flex-1 flex flex-row justify-between items-center bg-[#282828] rounded-[20px] w-[550px] py-1 px-4">
-        <div className="flex flex-row justify-center items-center gap-3">
+      <div className="flex-1 flex flex-row justify-between items-center   w-[55 0px] py-1 px-4">
+        <div className="flex flex-row justify-center items-center gap-20">
           {navlinks.map((link) => (
             <Icon 
               key={link.name}
@@ -42,7 +72,6 @@ export default function Navs() {
           ))}
         </div>
 
-        <Icon styles="bg-[#1c1c24] shadow-secondary" imgUrl={sun} />
       </div>
     </div>
     </div>

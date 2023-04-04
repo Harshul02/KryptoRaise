@@ -1,0 +1,4 @@
+.Icon:hover::after {
+    transform: scaleX(1);
+  }
+  
