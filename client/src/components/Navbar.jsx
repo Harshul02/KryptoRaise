@@ -15,27 +15,41 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
       <img src={imgUrl} alt="fund_logo" className={`w-1/2 h-1/2 ${isActive !== name && 'grayscale'}`} />
     )}
   </div>
-  //helloworld
+
 )
 
-const Navbar = () => {
+
+const Navbar = ({setSearch}) => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const { connect, address } = useStateContext();
+  function handleChange(event) {
+    setSearch(event.target.value.toLowerCase());
+  }
+  
+ 
+  
   
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
     
     
       <Navs />
-     <div class="search-box">
+      <div class="search-box">
+  <div class="search-button">
+    <img src={search} alt="search" />
+  </div>
+  <input type="text" class="search-input " onChange={handleChange} placeholder="Search for campaigns" />
+<span className='text-white py-1 mr-2 font-semibold '>Search</span>
+</div>
+     {/* <div class="search-box">
   <div class="search-button">
     <img src={search} alt="search" />
   </div>
   <input type="text" class="search-input" placeholder="Search for campaigns" />
 <span className='text-white py-1 mr-2 font-semibold '>Search</span>
-</div>
+</div> */}
      
       <div className="sm:flex hidden flex-row justify-end gap-4">
         <CustomButton 

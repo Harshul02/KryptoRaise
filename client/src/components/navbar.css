@@ -12,6 +12,17 @@
     margin-top: -10px;
 
 }
+/* .search-box {
+    display: flex;
+    align-items: center;
+    transform: translate(0%,-49%);
+    background: #081c2c;
+    height: 43px;
+    border-radius: 40px;
+    padding: 0px;
+    overflow: hidden;
+    margin-top: -15px;
+} */
 
 .search-box:hover > .search-input {
     width: 240px;
