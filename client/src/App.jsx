@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { backg } from './assets';
+import { opoy7 } from './assets';
+
+
 
 import { Sidebar, Navbar } from './components';
 import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
@@ -8,7 +10,7 @@ import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
 const App = () => {
 
   const backgroundImageStyle = {
-    backgroundImage: `url(${backg})`,
+    backgroundImage: `url(${opoy7})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -16,11 +18,11 @@ const App = () => {
 
   return (
     <div className="relative sm:-8 p-4 min-h-screen flex flex-row" style={backgroundImageStyle}>
-      {/* <div className="sm:flex hidden mr-10 relative">
+      <div className="sm:flex hidden relative">
         <Sidebar />
-      </div> */}
+      </div>
 
-      <div className="flex-1 max-sm:w-full mx-auto sm:pr-5">
+      <div className="flex-1 max-sm:w-full  mx-auto sm:pr-5">
         <Navbar />
 
         <Routes>
