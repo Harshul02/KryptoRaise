@@ -12,10 +12,8 @@ import menu from './menu.svg';
 import money from './money.svg';
 import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
-import backg from './backg.jpg';
-import sample1 from './sample1.jpg';
-import sample2 from './sample2.jpg';
-import sample3 from './sample3.jpg';
+import opoy7 from './opoy7.jpg';
+
 
 export {
   tagType,
@@ -32,8 +30,5 @@ export {
   money,
   loader,
   thirdweb,
-  backg,
-  sample1,
-  sample2,
-  sample3
+  opoy7
 };

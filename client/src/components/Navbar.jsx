@@ -22,7 +22,7 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const { connect, address } = useStateContext();
-
+  
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
     {/* <Link to="/">
@@ -30,10 +30,10 @@ const Navbar = () => {
       </Link> */}
     
       <Navs />
-      <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#282828] rounded-[100px]">
+      <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#081c2c] rounded-[100px]">
         <input type="text" placeholder="Search for campaigns" className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent outline-none" />
         
-        <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
+        <div className="w-[72px] h-full rounded-[20px] bg-[#25689e] flex justify-center items-center cursor-pointer">
           <img src={search} alt="search" className="w-[15px] h-[15px] object-contain"/>
         </div>
         
@@ -50,11 +50,9 @@ const Navbar = () => {
           }}
         />
 
-        <Link to="/profile">
-          <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
+          <div className="w-[52px] h-[52px] rounded-full bg-[#081c2c] flex justify-center items-center cursor-pointer">
             <img src={logout} alt="user" className="w-[60%] h-[60%] object-contain" />
           </div>
-        </Link>
       </div>
 
       {/* Small screen navigation */}

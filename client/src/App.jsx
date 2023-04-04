@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { backg } from './assets';
-import { sample1 } from './assets';
-import { sample2 } from './assets';
-import { sample3 } from './assets';
+import { opoy7 } from './assets';
+
+
 
 import { Sidebar, Navbar } from './components';
 import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
@@ -11,7 +10,7 @@ import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
 const App = () => {
 
   const backgroundImageStyle = {
-    backgroundImage: `url(${sample2})`,
+    backgroundImage: `url(${opoy7})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
