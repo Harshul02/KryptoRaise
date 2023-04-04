@@ -34,4 +34,9 @@ export const navlinks = [
     link: '/',
     disabled: true,
   },
+  {
+    name: 'pins',
+    ingUrl: '',
+    link: '/',
+  }
 ];
