@@ -39,7 +39,7 @@ const CampaignDetails = () => {
 
   return (
     <div>
-   <button onClick={() => navigate(-1)} className="bg-gray-700 text-white px-4 py-2 rounded-md">Back</button>
+   <button onClick={() => navigate(-1)} className="#25689e text-white px-4 py-2 rounded-md">Back</button>
 
       {isLoading && <Loader />}
 
@@ -102,8 +102,8 @@ const CampaignDetails = () => {
         <div className="flex-1">
           <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>   
 
-          <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
-            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#808191]">
+          <div className="mt-[20px] flex flex-col p-4 bg-[#081c2c] rounded-[10px]">
+            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center font-bold text-[#f2f2f5]">
               Fund the campaign
             </p>
             <div className="mt-[30px]">
@@ -116,7 +116,7 @@ const CampaignDetails = () => {
                 onChange={(e) => setAmount(e.target.value)}
               />
 
-              <div className="my-[20px] p-4 bg-[#13131a] rounded-[10px]">
+              <div className="my-[20px] p-4 bg-[#071420] rounded-[10px]">
                 <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
                 <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p>
               </div>
