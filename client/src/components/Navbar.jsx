@@ -27,15 +27,12 @@ const Navbar = ({setSearch}) => {
   function handleChange(event) {
     setSearch(event.target.value.toLowerCase());
   }
-  
- 
-  
-  
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
     
     
       <Navs />
+     
       <div class="search-box">
   <div class="search-button">
     <img src={search} alt="search" />
@@ -43,13 +40,7 @@ const Navbar = ({setSearch}) => {
   <input type="text" class="search-input " onChange={handleChange} placeholder="Search for campaigns" />
 <span className='text-white py-1 mr-2 font-semibold '>Search</span>
 </div>
-     {/* <div class="search-box">
-  <div class="search-button">
-    <img src={search} alt="search" />
-  </div>
-  <input type="text" class="search-input" placeholder="Search for campaigns" />
-<span className='text-white py-1 mr-2 font-semibold '>Search</span>
-</div> */}
+  
      
       <div className="sm:flex hidden flex-row justify-end gap-4">
         <CustomButton 
@@ -61,6 +52,7 @@ const Navbar = ({setSearch}) => {
             else connect()
           }}
         />
+       
 
           {/* <div className="w-[52px] h-[52px] rounded-full bg-[#081c2c] flex justify-center items-center cursor-pointer">
             <img src={logout} alt="user" className="w-[60%] h-[60%] object-contain" />
