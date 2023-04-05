@@ -2,7 +2,7 @@ import React from 'react';
 import { tagType, thirdweb } from '../assets';
 import { daysLeft } from '../utils';
 
-const FundCard = ({ owner, title, description, target, deadline, amountCollected, image, handleClick }) => {
+const FundCard = ({ owner, title,name, description, target, deadline, amountCollected, image, handleClick },form) => {
   const remainingDays = daysLeft(deadline);
   const progressPercentage = Math.floor((amountCollected / target) * 100);
   
