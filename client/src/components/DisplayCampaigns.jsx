@@ -18,19 +18,13 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
   const count = filteredCampaigns.length;
 
   const handleNavigate = (campaign) => {
-    navigate(`/campaign-details/${campaign.title}`, { state: campaign })
+    navigate(`/campaign-details/${campaign.title}`, { state: campaign})
   }
   
   return (
     
     <div className="ml-0 sm:ml-20">
-      {/* <div class="search-box">
-  <div class="search-button">
-    <img src={search} alt="search" />
-  </div>
-  <input type="text" class="search-input " onChange={(e)=>setSearch(e.target.value.toLowerCase())} placeholder="Search for campaigns" />
-<span className='text-white py-1 mr-2 font-semibold '>Search</span>
-</div> */}
+      
       
       <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count})</h1>
 

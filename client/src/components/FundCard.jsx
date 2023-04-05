@@ -7,6 +7,8 @@ const FundCard = ({ owner, title,name, description, target, deadline, amountColl
   const progressPercentage = Math.floor((amountCollected / target) * 100);
   
   return (
+    <div>
+      {progressPercentage<100  && remainingDays>0 &&  (
     <div className="sm:w-[288px] w-full rounded-[15px] bg-[#081c2c] cursor-pointer shadow-lg transform hover:scale-105 transition-all duration-300" onClick={handleClick}>
       <div className="relative">
         <img src={image} alt="fund" className="w-full h-[158px] object-cover rounded-t-[15px]"/>
@@ -49,6 +51,10 @@ const FundCard = ({ owner, title,name, description, target, deadline, amountColl
           <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate">by <span className="text-[#b2b3bd]">{owner}</span></p>
         </div>
       </div>
+    </div>
+
+      )}
+
     </div>
   )
 }
