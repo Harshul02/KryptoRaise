@@ -7,8 +7,15 @@ import "./navbar.css";
 import FundCard from './FundCard';
 import { loader } from '../assets';
 
+
 const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
   const navigate = useNavigate();
+  const filteredCampaigns = campaigns.filter((campaign) =>{
+
+    return Search.toLowerCase()=== '' ? campaign : campaign.title.toLowerCase().includes(Search.toLowerCase())
+  });
+
+  const count = filteredCampaigns.length;
 
   const handleNavigate = (campaign) => {
     navigate(`/campaign-details/${campaign.title}`, { state: campaign })
@@ -17,16 +24,8 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
   return (
     
     <div className="ml-0 sm:ml-20">
-      {/* <div class="search-box">
-  <div class="search-button">
-    <img src={search} alt="search" />
-  </div>
-  <input type="text" class="search-input " onChange={(e)=>setSearch(e.target.value.toLowerCase())} placeholder="Search for campaigns" />
-<span className='text-white py-1 mr-2 font-semibold '>Search</span>
-</div> */}
       
-        
-      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({campaigns.length})</h1>
+      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count})</h1>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
         {isLoading && (
@@ -39,9 +38,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
           </p>
         )}
 
-        {!isLoading && campaigns.length > 0 && campaigns.filter((campaign)=>{
-          return Search.toLowerCase()=== '' ? campaign : campaign.title.toLowerCase().includes(Search)
-        }).map((campaign) => <FundCard 
+        {!isLoading && campaigns.length > 0 && filteredCampaigns.map((campaign) => <FundCard 
           key={campaign.id}
           {...campaign}
           handleClick={() => handleNavigate(campaign)}
