@@ -21,7 +21,7 @@ contract CrowdFunding {
     function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
-        require(campaign.deadline < block.timestamp, "The deadline should be a date in the future.");
+        require(_deadline > block.timestamp, "The deadline should be a date in the future.");
 
         campaign.owner = _owner;
         campaign.title = _title;
@@ -50,9 +50,10 @@ contract CrowdFunding {
             campaign.amountCollected = campaign.amountCollected + amount;
         }
 
-        if (campaign.amountCollected >= campaign.target) {
+        if (campaign.amountCollected >= campaign.target || block.timestamp >= campaign.deadline) {
             deleteCampaign(_id);
         }
+        
     }
 
     function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory) {
@@ -74,9 +75,6 @@ contract CrowdFunding {
     function deleteCampaign(uint256 _id) internal {
         require(_id < numberOfCampaigns, "Campaign does not exist");
 
-        Campaign storage campaign = campaigns[_id];
-
-        require(campaign.amountCollected >= campaign.target, "Target amount not reached");
 
         for (uint256 i = _id; i < numberOfCampaigns - 1; i++) {
             campaigns[i] = campaigns[i+1];
