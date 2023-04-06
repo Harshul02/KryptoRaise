@@ -32,7 +32,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.4s;
 }
 
 .search-input {
@@ -45,13 +44,7 @@
     font-size: 16px;
     transition: 0.4s;
     line-height: 40px;
-    width: 0px;
+    width: 240px;
 
 }
 
-@media screen and (max-width: 620px) {
-.search-box:hover > .search-input {
-    width: 150px;
-    padding: 0 6px;
-}
-}
