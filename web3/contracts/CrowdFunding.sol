@@ -49,6 +49,10 @@ contract CrowdFunding {
         if(sent) {
             campaign.amountCollected = campaign.amountCollected + amount;
         }
+
+        if (campaign.amountCollected >= campaign.target) {
+            deleteCampaign(_id);
+        }
     }
 
     function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory) {
@@ -65,5 +69,21 @@ contract CrowdFunding {
         }
 
         return allCampaigns;
+    }
+
+    function deleteCampaign(uint256 _id) internal {
+        require(_id < numberOfCampaigns, "Campaign does not exist");
+
+        Campaign storage campaign = campaigns[_id];
+
+        require(campaign.amountCollected >= campaign.target, "Target amount not reached");
+
+        for (uint256 i = _id; i < numberOfCampaigns - 1; i++) {
+            campaigns[i] = campaigns[i+1];
+        }
+
+        delete campaigns[numberOfCampaigns - 1];
+
+        numberOfCampaigns--;
     }
 }
