@@ -102,6 +102,7 @@ const CreateCampaign = () => {
             value={form.image}
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
+          
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 
