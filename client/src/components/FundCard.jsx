@@ -1,6 +1,25 @@
 import React from 'react';
-import { tagType, thirdweb } from '../assets';
+import { tagType, thirdweb, shareicon } from '../assets';
 import { daysLeft } from '../utils';
+import {
+  EmailIcon,
+  FacebookIcon,
+  InstapaperIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  TwitterIcon,
+  WhatsappIcon
+} from "react-share";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  InstapaperShareButton,
+  LinkedinShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton
+} from "react-share";
+
 
 const FundCard = ({ owner, title,name, description, target, deadline, amountCollected, image, handleClick },form) => {
   const remainingDays = daysLeft(deadline);
@@ -49,6 +68,10 @@ const FundCard = ({ owner, title,name, description, target, deadline, amountColl
             <img src={thirdweb} alt="user" className="w-1/2 h-1/2 object-contain"/>
           </div>
           <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate">by <span className="text-[#b2b3bd]">{owner}</span></p>
+          <div className="w-[36px] h-[36px] rounded-full flex justify-center items-center bg-[#808191] hover hover:scale-125 duration-300" title="Share">
+            <img src={shareicon} alt="user" className="w-1/2 h-1/2 object-contain"/>
+          </div>
+          
         </div>
       </div>
     </div>
