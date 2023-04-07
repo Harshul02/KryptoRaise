@@ -172,7 +172,7 @@ const CampaignDetails = () => {
               />
             </div>
             <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase my-5">Share</h4>
+            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase my-5" id='sharing'>Share</h4>
 
               <div className="mt-[20px]">
                 {/* <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify"> */}
