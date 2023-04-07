@@ -8,7 +8,7 @@ const FundCard = ({ owner, title,name, description, target, deadline, amountColl
   
   return (
     <div>
-      {progressPercentage<100  && remainingDays>0 &&  (
+      {progressPercentage<100  && remainingDays>=0 &&  (
     <div className="sm:w-[288px] w-full rounded-[15px] bg-[#081c2c] cursor-pointer shadow-lg transform hover:scale-105 transition-all duration-300" onClick={handleClick}>
       <div className="relative">
         <img src={image} alt="fund" className="w-full h-[158px] object-cover rounded-t-[15px]"/>
