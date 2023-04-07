@@ -14,6 +14,7 @@ const CampaignDetails = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
+  const [name, setName] = useState(''); //change
   const [donators, setDonators] = useState([]);
 
   const remainingDays = daysLeft(state.deadline);
@@ -31,7 +32,7 @@ const CampaignDetails = () => {
   const handleDonate = async () => {
     setIsLoading(true);
 
-    await donate(state.pId, amount); 
+    await donate(state.pId, amount,name); //change
 
     navigate('/')
     setIsLoading(false);
@@ -75,27 +76,42 @@ const CampaignDetails = () => {
           </div>
 
           <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Story</h4>
+            <h4 className="font-epilogue font-semibold text-2xl text-white uppercase">Story</h4>
 
-              <div className="mt-[20px]">
-                <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify">{state.description}</p>
+              <div className="mt-[20px] ">
+                <p className="font-epilogue font-normal text-[18px] text-[#808191] leading-[26px] text-justify">{state.description}</p>
               </div>
           </div>
 
-          <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Top Donators</h4>
+    <div>
+  <h4 className="font-epilogue font-semibold text-2xl text-white uppercase mb-4">Top Donators</h4>
 
-              <div className="mt-[20px] flex flex-col gap-4">
-                {donators.length > 0 ? donators.map((item, index) => (
-                  <div key={`${item.donator}-${index}`} className="flex justify-between items-center gap-4">
-                    <p className="font-epilogue font-normal text-[16px] text-[#b2b3bd] leading-[26px] break-ll">{index + 1}. {item.donator}</p>
-                    <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] break-ll">{item.donation}</p>
-                  </div>
-                )) : (
-                  <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify">No donators yet. Be the first one!</p>
-                )}
-              </div>
-          </div>
+  <div className="flex flex-col gap-4 overflow-x-auto text-center  p-4 rounded-xl">
+  <div className="flex justify-between items-center bg-[#0c2c46] text-white rounded-2xl px-6 py-2">
+    <p className="font-epilogue font-bold text-lg">Name</p>
+    <p className="font-epilogue font-bold text-lg">Address</p>
+    <p className="font-epilogue font-bold text-lg">Donation Amount</p>
+  </div>
+  {donators.length > 0 ? donators.map((item, index) => (
+    <div key={`${item.donator}-${index}`} className="flex justify-between items-center bg-[#15446a] hover:bg-[#113a5b] rounded-full px-6 py-2  hover:scale-105  duration-200">
+      <div className="flex items-center">
+        <span className="text-white text-lg font-bold mr-2">{index + 1}</span>
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
+          <span className="text-white text-xl font-bold">{item.donatorName.charAt(0)}</span>
+        </div>
+        <span className="font-epilogue font-normal text-lg text-white ml-4  ">{item.donatorName}</span>
+      </div>
+      <p className="font-epilogue font-normal text-lg text-white  ">{item.donator}</p>
+      <p className="font-epilogue font-normal text-lg text-white  ">{item.donation} ETH</p>
+    </div>
+  )) : (
+    <p className="font-epilogue font-normal text-lg text-gray-600 text-justify py-4">No donations yet. Be the first one!</p>
+  )}
+</div>
+
+
+</div>
+
         </div>
 
         <div className="flex-1">
@@ -106,6 +122,14 @@ const CampaignDetails = () => {
               Fund the campaign
             </p>
             <div className="mt-[30px]">
+            <input 
+                type="text"
+                placeholder="Name"
+                step="0.01"
+                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px] mb-4"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
               <input 
                 type="number"
                 placeholder="ETH 0.1"
@@ -114,6 +138,7 @@ const CampaignDetails = () => {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
+              
 
               <div className="my-[20px] p-4 bg-[#071420] rounded-[10px]">
                 <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>

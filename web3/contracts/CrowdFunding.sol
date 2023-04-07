@@ -12,6 +12,7 @@ contract CrowdFunding {
         string image;
         address[] donators;
         uint256[] donations;
+        string[] names;
     }
 
     mapping(uint256 => Campaign) public campaigns;
@@ -36,13 +37,14 @@ contract CrowdFunding {
         return numberOfCampaigns - 1;
     }
 
-function donateToCampaign(uint256 _id) public payable {
+function donateToCampaign(uint256 _id,string memory name) public payable {
         uint256 amount = msg.value;
 
         Campaign storage campaign = campaigns[_id];
 
         campaign.donators.push(msg.sender);
         campaign.donations.push(amount);
+        campaign.names.push(name);
         
         // sort the donations array in descending order
         for (uint256 i = 0; i < campaign.donations.length; i++) {
@@ -70,9 +72,10 @@ function donateToCampaign(uint256 _id) public payable {
 }
 
 
-    function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory) {
-        return (campaigns[_id].donators, campaigns[_id].donations);
+    function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory, string[] memory) {
+    return (campaigns[_id].donators, campaigns[_id].donations, campaigns[_id].names);
     }
+
 
     function getCampaigns() public view returns (Campaign[] memory) {
         Campaign[] memory allCampaigns = new Campaign[](numberOfCampaigns);
