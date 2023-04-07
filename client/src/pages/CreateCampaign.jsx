@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
 import { money } from '../assets';
-import { CustomButton, FormField, Loader } from '../components';
+import { CustomButton, FormField, Loader, DropDown } from '../components';
 import { checkIfImage } from '../utils';
 
 const CreateCampaign = () => {
@@ -17,7 +17,8 @@ const CreateCampaign = () => {
     description: '',
     target: '', 
     deadline: '',
-    image: ''
+    image: '',
+    drop: ''
   });
 
   const handleFormFieldChange = (fieldName, e) => {
@@ -95,6 +96,13 @@ const CreateCampaign = () => {
           />
         </div>
 
+        <div className="flex flex-wrap gap-[40px]">
+        <DropDown
+        labelName="Campaign Type *"
+        value={form.drop} 
+        handleChange={(e) => handleFormFieldChange('drop', e)}
+        />
+
         <FormField 
             labelName="Campaign image *"
             placeholder="Place image URL of your campaign"
@@ -102,6 +110,7 @@ const CreateCampaign = () => {
             value={form.image}
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
+        </div>
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 
