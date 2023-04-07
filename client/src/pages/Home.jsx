@@ -27,6 +27,7 @@ const Home = ({Search}) => {
       campaigns={campaigns}
       Search = {Search}
     />
+    
   )
 }
 

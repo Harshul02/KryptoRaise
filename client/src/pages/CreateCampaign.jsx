@@ -18,7 +18,7 @@ const CreateCampaign = () => {
     target: '', 
     deadline: '',
     image: '',
-    drop: ''
+    category: ''
   });
 
   const handleFormFieldChange = (fieldName, e) => {
@@ -97,11 +97,31 @@ const CreateCampaign = () => {
         </div>
 
         <div className="flex flex-wrap gap-[40px]">
-        <DropDown
-        labelName="Campaign Type *"
-        value={form.drop} 
-        handleChange={(e) => handleFormFieldChange('drop', e)}
-        />
+        <label className="flex-1 w-full flex flex-col">
+  <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">
+    Category*
+  </span>
+  
+ <select 
+  value={form.category} 
+  onChange={(e) => handleFormFieldChange('category', e)}
+  className="py-3 px-4 outline-none border-2 border-gray-300 bg-[#081c2c] text-[#808191] rounded-md min-w-[300px]"
+  required
+>
+  <option value="" className="bg-gray-800 text-white py-2 px-4">Select category</option>
+  <option value="Education and Learning" className="bg-gray-800 text-white py-2 px-4">Education and Learning</option>
+  <option value="Environmental Causes" className="bg-gray-800 text-white py-2 px-4">Environmental Causes</option>
+  <option value="Health and Medical Expenses" className="bg-gray-800 text-white py-2 px-4">Health and Medical Expenses</option>
+  <option value="Humanitarian Aid and Disaster Relief" className="bg-gray-800 text-white py-2 px-4">Humanitarian Aid and Disaster Relief</option>
+  <option value="Personal and Family Emergencies" className="bg-gray-800 text-white py-2 px-4">Personal and Family Emergencies</option>
+  <option value="Social Causes and Activism" className="bg-gray-800 text-white py-2 px-4">Social Causes and Activism</option>
+  <option value="Technology and Innovation" className="bg-gray-800 text-white py-2 px-4">Technology and Innovation</option>
+  <option value="Wildlife and Animal Conservation" className="bg-gray-800 text-white py-2 px-4">Wildlife and Animal Conservation</option>
+</select>
+
+</label>
+
+
 
         <FormField 
             labelName="Campaign image *"
@@ -110,6 +130,7 @@ const CreateCampaign = () => {
             value={form.image}
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
+          
         </div>
 
           <div className="flex justify-center items-center mt-[40px]">
