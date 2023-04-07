@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "npm": "^9.6.3"
+    "npm": "^9.6.3",
+    "react-share": "^4.4.1"
   }
 }

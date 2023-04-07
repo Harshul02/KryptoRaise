@@ -6,6 +6,25 @@ import { useStateContext } from '../context';
 import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { thirdweb } from '../assets';
+import {
+  EmailIcon,
+  FacebookIcon,
+  InstapaperIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  TwitterIcon,
+  WhatsappIcon
+} from "react-share";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  InstapaperShareButton,
+  LinkedinShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton
+} from "react-share";
+
 
 const CampaignDetails = () => {
   const { state } = useLocation();
@@ -38,6 +57,7 @@ const CampaignDetails = () => {
     setIsLoading(false);
   }
 
+  const currentPageURl = window.location.href;
   return (
     <div>
    <button onClick={() => navigate(-1)} className="#25689e text-white px-4 py-2 rounded-md">Back</button>
@@ -111,6 +131,65 @@ const CampaignDetails = () => {
 
 
 </div>
+          <div>
+            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Share</h4>
+
+              <div className="mt-[20px]">
+                {/* <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify"> */}
+                <FacebookShareButton 
+                url={currentPageURl}
+                quote={"Please donate to help poor people"}
+                hashtag="#donateforpoor"
+                className="hover hover:scale-125 duration-300">
+                 <FacebookIcon size={40} round={true} />
+              </FacebookShareButton>
+
+              <EmailShareButton
+              url={currentPageURl}
+              subject = {"Crowd Funding"}
+              body={`Check out this link: ${currentPageURl}`}
+              separator={''}
+              className="hover hover:scale-125 mx-4 duration-300">
+                <EmailIcon size={40} round={true} />
+              </EmailShareButton>
+
+              <LinkedinShareButton
+              url={currentPageURl}
+              title={"Please Donate for " + state.owner}
+              summary={state.description}
+              source={"http://127.0.0.1:5173/campaign-details/re"}
+              className="hover hover:scale-125 duration-300">
+                <LinkedinIcon size={40} round={true} />
+              </LinkedinShareButton>
+
+              <TelegramShareButton
+              url = {currentPageURl}
+              title = {"Please donate for " + state.owner+ "\n" + state.description}
+              summary={state.description} 
+              className="hover hover:scale-125 mx-4 duration-300">
+                <TelegramIcon size={40} round={true} />
+              </TelegramShareButton>
+
+              <TwitterShareButton
+              url={currentPageURl}
+              title={"Please donate for " + state.owner}
+              via={"http://www.google.com"}
+              hashtags={"#donateforpoor"}
+              className="hover hover:scale-125 duration-300">
+                <TwitterIcon size={40} round={true} />
+              </TwitterShareButton>
+
+              <WhatsappShareButton
+              url={currentPageURl}
+              title = {"Please donate for " + state.owner}
+              separator={" "}
+              body={state.description}
+              className="hover hover:scale-125 mx-4 duration-300">
+                <WhatsappIcon size={40} round={true} />
+              </WhatsappShareButton>
+              {/* </p> */}
+              </div>
+    </div>
 
         </div>
 

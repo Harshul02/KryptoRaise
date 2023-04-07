@@ -13,6 +13,7 @@ import money from './money.svg';
 import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
 import opoy7 from './opoy7.jpg';
+import shareicon from './share-icon.svg';
 
 
 export {
@@ -30,5 +31,6 @@ export {
   money,
   loader,
   thirdweb,
-  opoy7
+  opoy7,
+  shareicon
 };
