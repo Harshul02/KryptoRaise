@@ -36,13 +36,27 @@ contract CrowdFunding {
         return numberOfCampaigns - 1;
     }
 
-    function donateToCampaign(uint256 _id) public payable {
+function donateToCampaign(uint256 _id) public payable {
         uint256 amount = msg.value;
 
         Campaign storage campaign = campaigns[_id];
 
         campaign.donators.push(msg.sender);
         campaign.donations.push(amount);
+        
+        // sort the donations array in descending order
+        for (uint256 i = 0; i < campaign.donations.length; i++) {
+            for (uint256 j = i+1; j < campaign.donations.length; j++) {
+                if (campaign.donations[i] < campaign.donations[j]) {
+                    uint256 tempValue = campaign.donations[i];
+                    campaign.donations[i] = campaign.donations[j];
+                    campaign.donations[j] = tempValue;
+                    address tempAddr = campaign.donators[i];
+                    campaign.donators[i] = campaign.donators[j];
+                    campaign.donators[j] = tempAddr;
+                }
+            }
+        }
 
         (bool sent,) = payable(campaign.owner).call{value: amount}("");
 
@@ -53,8 +67,8 @@ contract CrowdFunding {
         if (campaign.amountCollected >= campaign.target || block.timestamp >= campaign.deadline) {
             deleteCampaign(_id);
         }
-        
-    }
+}
+
 
     function getDonators(uint256 _id) view public returns (address[] memory, uint256[] memory) {
         return (campaigns[_id].donators, campaigns[_id].donations);

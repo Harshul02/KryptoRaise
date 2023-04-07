@@ -7,7 +7,7 @@ import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract('0x484e881e7566bb2354D20D8FDBcd407BEd55fE62');
+  const { contract } = useContract('0x38D8e08d63939aeae9AA69Eb2BeD9e1668978cc5');
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
@@ -70,6 +70,7 @@ export const StateContextProvider = ({ children }) => {
     for(let i = 0; i < numberOfDonations; i++) {
       parsedDonations.push({
         donator: donations[0][i],
+        //donatorName:donations[2][i];
         donation: ethers.utils.formatEther(donations[1][i].toString())
       })
     }
