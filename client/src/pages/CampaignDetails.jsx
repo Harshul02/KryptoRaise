@@ -113,7 +113,7 @@ const CampaignDetails = () => {
     <p className="font-epilogue font-bold text-lg">Donation Amount</p>
   </div>
   {donators.length > 0 ? donators.map((item, index) => (
-    <div key={`${item.donator}-${index}`} className="flex justify-between items-center bg-[#15446a] hover:bg-[#113a5b] rounded-full px-6 py-2  hover:scale-105  duration-200">
+    <div key={`${item.donator}-${index}`} className="flex justify-between items-center bg-[#15446a] hover:bg-[#113a5b] rounded-full px-6 py-2">
       <div className="flex items-center">
         <span className="text-white text-lg font-bold mr-2">{index + 1}</span>
         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
@@ -131,8 +131,48 @@ const CampaignDetails = () => {
 
 
 </div>
-          <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Share</h4>
+        </div>
+
+        <div className="flex-1">
+          <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>   
+
+          <div className="mt-[20px] flex flex-col p-4 bg-[#081c2c] rounded-[10px]">
+            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center font-bold text-[#f2f2f5]">
+              Fund the campaign
+            </p>
+            <div className="mt-[30px]">
+            <input 
+                type="text"
+                placeholder="Name"
+                step="0.01"
+                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px] mb-4"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input 
+                type="number"
+                placeholder="ETH 0.1"
+                step="0.01"
+                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+              
+
+              <div className="my-[20px] p-4 bg-[#071420] rounded-[10px]">
+                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
+                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p>
+              </div>
+
+              <CustomButton
+                btnType="button"
+                title="Fund Campaign"
+                styles="w-full bg-[#8c6dfd]"
+                handleClick={handleDonate}
+              />
+            </div>
+            <div>
+            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase my-5">Share</h4>
 
               <div className="mt-[20px]">
                 {/* <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify"> */}
@@ -190,47 +230,6 @@ const CampaignDetails = () => {
               {/* </p> */}
               </div>
     </div>
-
-        </div>
-
-        <div className="flex-1">
-          <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>   
-
-          <div className="mt-[20px] flex flex-col p-4 bg-[#081c2c] rounded-[10px]">
-            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center font-bold text-[#f2f2f5]">
-              Fund the campaign
-            </p>
-            <div className="mt-[30px]">
-            <input 
-                type="text"
-                placeholder="Name"
-                step="0.01"
-                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px] mb-4"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <input 
-                type="number"
-                placeholder="ETH 0.1"
-                step="0.01"
-                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              />
-              
-
-              <div className="my-[20px] p-4 bg-[#071420] rounded-[10px]">
-                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
-                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p>
-              </div>
-
-              <CustomButton
-                btnType="button"
-                title="Fund Campaign"
-                styles="w-full bg-[#8c6dfd]"
-                handleClick={handleDonate}
-              />
-            </div>
           </div>
         </div>
       </div>
