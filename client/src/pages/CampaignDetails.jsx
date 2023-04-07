@@ -5,7 +5,7 @@ import { ethers } from 'ethers';
 import { useStateContext } from '../context';
 import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
-import { thirdweb } from '../assets';
+import { thirdweb,tagType } from '../assets';
 import {
   EmailIcon,
   FacebookIcon,
@@ -93,8 +93,12 @@ const CampaignDetails = () => {
                 <h4 className="font-epilogue font-semibold text-[14px] text-white break-all">{state.owner}</h4>
               </div>
             </div>
+            <div className="flex flex-row items-center mt-4">
+          <img src={tagType} alt="tag" className="w-[17px] h-[17px] object-contain"/>
+          <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">{state.category}</p>
+        </div>
           </div>
-
+          
           <div>
             <h4 className="font-epilogue font-semibold text-2xl text-white uppercase">Story</h4>
 
