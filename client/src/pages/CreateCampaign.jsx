@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
 import { money } from '../assets';
-import { CustomButton, FormField, Loader } from '../components';
+import { CustomButton, FormField, Loader, DropDown } from '../components';
 import { checkIfImage } from '../utils';
 
 const CreateCampaign = () => {
@@ -17,7 +17,8 @@ const CreateCampaign = () => {
     description: '',
     target: '', 
     deadline: '',
-    image: ''
+    image: '',
+    category: ''
   });
 
   const handleFormFieldChange = (fieldName, e) => {
@@ -95,6 +96,26 @@ const CreateCampaign = () => {
           />
         </div>
 
+        <div className="flex flex-wrap gap-[40px]">
+        <label className="flex-1 w-full flex flex-col">
+        <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Category</span>
+      
+        <select value={form.category} onChange={(e) => handleFormFieldChange('category', e)}className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[14px] rounded-[10px] sm:min-w-[300px]">
+  <option value="">Select category</option>
+  <option value="Education and Learning">Education and Learning</option>
+  <option value="Environmental Causes">Environmental Causes</option>
+  <option value="Health and Medical Expenses">Health and Medical Expenses</option>
+  <option value="Humanitarian Aid and Disaster Relief">Humanitarian Aid and Disaster Relief</option>
+  <option value="Personal and Family Emergencies">Personal and Family Emergencies</option>
+  <option value="Social Causes and Activism">Social Causes and Activism</option>
+  <option value="Technology and Innovation">Technology and Innovation</option>
+  <option value="Wildlife and Animal Conservation">Wildlife and Animal Conservation</option>
+  
+
+</select>
+</label>
+
+
         <FormField 
             labelName="Campaign image *"
             placeholder="Place image URL of your campaign"
@@ -103,6 +124,7 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
           
+        </div>
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 

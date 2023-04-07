@@ -1,6 +1,9 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { tagType, thirdweb, shareicon } from '../assets';
 import { daysLeft } from '../utils';
+import { HashLink } from 'react-router-hash-link';
 import {
   EmailIcon,
   FacebookIcon,
@@ -21,13 +24,22 @@ import {
 } from "react-share";
 
 
-const FundCard = ({ owner, title,name, description, target, deadline, amountCollected, image, handleClick },form) => {
+const FundCard = ({ owner, title, description, target, deadline, amountCollected, image,category, handleClick },form) => {
   const remainingDays = daysLeft(deadline);
   const progressPercentage = Math.floor((amountCollected / target) * 100);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const unlisten = navigate((location, action) => {
+      if (location.hash) {
+        navigate(location.pathname);
+      }
+    });
+    return unlisten;
+  }, [navigate]);
   
   return (
     <div>
-      {progressPercentage<100  && remainingDays>=0 &&  (
+      {progressPercentage<100  &&  (
     <div className="sm:w-[288px] w-full rounded-[15px] bg-[#081c2c] cursor-pointer shadow-lg transform hover:scale-105 transition-all duration-300" onClick={handleClick}>
       <div className="relative">
         <img src={image} alt="fund" className="w-full h-[158px] object-cover rounded-t-[15px]"/>
@@ -37,7 +49,7 @@ const FundCard = ({ owner, title,name, description, target, deadline, amountColl
       <div className="flex flex-col p-4">
         <div className="flex flex-row items-center mb-[18px]">
           <img src={tagType} alt="tag" className="w-[17px] h-[17px] object-contain"/>
-          <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">Education</p>
+          <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">{category}</p>
         </div>
 
         <div className="block">
@@ -68,9 +80,11 @@ const FundCard = ({ owner, title,name, description, target, deadline, amountColl
             <img src={thirdweb} alt="user" className="w-1/2 h-1/2 object-contain"/>
           </div>
           <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate">by <span className="text-[#b2b3bd]">{owner}</span></p>
+          <HashLink smooth to = '#sharing'>
           <div className="w-[36px] h-[36px] rounded-full flex justify-center items-center bg-[#808191] hover hover:scale-125 duration-300" title="Share">
-            <img src={shareicon} alt="user" className="w-1/2 h-1/2 object-contain"/>
+          <img src={shareicon} alt="user" className="w-1/2 h-1/2 object-contain"/>
           </div>
+          </HashLink>
           
         </div>
       </div>
