@@ -98,22 +98,29 @@ const CreateCampaign = () => {
 
         <div className="flex flex-wrap gap-[40px]">
         <label className="flex-1 w-full flex flex-col">
-        <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Category</span>
-      
-        <select value={form.category} onChange={(e) => handleFormFieldChange('category', e)}className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[14px] rounded-[10px] sm:min-w-[300px]">
-  <option value="">Select category</option>
-  <option value="Education and Learning">Education and Learning</option>
-  <option value="Environmental Causes">Environmental Causes</option>
-  <option value="Health and Medical Expenses">Health and Medical Expenses</option>
-  <option value="Humanitarian Aid and Disaster Relief">Humanitarian Aid and Disaster Relief</option>
-  <option value="Personal and Family Emergencies">Personal and Family Emergencies</option>
-  <option value="Social Causes and Activism">Social Causes and Activism</option>
-  <option value="Technology and Innovation">Technology and Innovation</option>
-  <option value="Wildlife and Animal Conservation">Wildlife and Animal Conservation</option>
+  <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">
+    Category*
+  </span>
   
-
+ <select 
+  value={form.category} 
+  onChange={(e) => handleFormFieldChange('category', e)}
+  className="py-3 px-4 outline-none border-2 border-gray-300 bg-[#081c2c] text-[#808191] rounded-md min-w-[300px]"
+  required
+>
+  <option value="" className="bg-gray-800 text-white py-2 px-4">Select category</option>
+  <option value="Education and Learning" className="bg-gray-800 text-white py-2 px-4">Education and Learning</option>
+  <option value="Environmental Causes" className="bg-gray-800 text-white py-2 px-4">Environmental Causes</option>
+  <option value="Health and Medical Expenses" className="bg-gray-800 text-white py-2 px-4">Health and Medical Expenses</option>
+  <option value="Humanitarian Aid and Disaster Relief" className="bg-gray-800 text-white py-2 px-4">Humanitarian Aid and Disaster Relief</option>
+  <option value="Personal and Family Emergencies" className="bg-gray-800 text-white py-2 px-4">Personal and Family Emergencies</option>
+  <option value="Social Causes and Activism" className="bg-gray-800 text-white py-2 px-4">Social Causes and Activism</option>
+  <option value="Technology and Innovation" className="bg-gray-800 text-white py-2 px-4">Technology and Innovation</option>
+  <option value="Wildlife and Animal Conservation" className="bg-gray-800 text-white py-2 px-4">Wildlife and Animal Conservation</option>
 </select>
+
 </label>
+
 
 
         <FormField 
