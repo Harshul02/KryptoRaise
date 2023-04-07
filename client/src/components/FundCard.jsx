@@ -24,7 +24,7 @@ import {
 } from "react-share";
 
 
-const FundCard = ({ owner, title,name, description, target, deadline, amountCollected, image, handleClick },form) => {
+const FundCard = ({ owner, title, description, target, deadline, amountCollected, image,category, handleClick },form) => {
   const remainingDays = daysLeft(deadline);
   const progressPercentage = Math.floor((amountCollected / target) * 100);
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const FundCard = ({ owner, title,name, description, target, deadline, amountColl
       <div className="flex flex-col p-4">
         <div className="flex flex-row items-center mb-[18px]">
           <img src={tagType} alt="tag" className="w-[17px] h-[17px] object-contain"/>
-          <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">Education</p>
+          <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">{category}</p>
         </div>
 
         <div className="block">
