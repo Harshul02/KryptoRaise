@@ -14,6 +14,16 @@ import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
 import opoy7 from './opoy7.jpg';
 import shareicon from './share-icon.svg';
+import book1 from './book1.svg';
+import environment from './environment.svg';
+import health from './health.svg';
+import humanitarian from './humanitarian.svg';
+import personal from './personal.svg';
+import social from './social.svg';
+import tech from './tech.svg';
+import wildlife from './wildlife.svg';
+import others from './others1.png'
+
 
 
 export {
@@ -32,5 +42,14 @@ export {
   loader,
   thirdweb,
   opoy7,
-  shareicon
+  shareicon,
+  book1,
+  environment,
+  health,
+  humanitarian,
+  personal,
+  social,
+  tech,
+  wildlife,
+  others
 };

@@ -1,0 +1,25 @@
+.highlight {
+    border: 2px solid #1d1245; 
+    animation-name: highlight-border;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes highlight-border {
+    0% {
+      border-color: #1d1245;
+    }
+    50% {
+      border-color: #8c6dfd;
+    }
+    100% {
+      border-color: #1d1245;
+    }
+  }
+  
+  .highlight-end {
+    transition: border-color 1s ease-in-out; /* Change the transition duration to match the desired highlight duration */
+    border-color: transparent !important;
+  }
+  
