@@ -10,6 +10,7 @@ import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
 const App = () => {
 
   const [Search,setSearch] = useState("");
+  
   const backgroundImageStyle = {
     backgroundImage: `url(${opoy7})`,
     backgroundRepeat: 'no-repeat',
@@ -30,7 +31,7 @@ const App = () => {
           <Route path="/" element={<Home Search={Search}/>} />
           <Route path="/profile" element={<Profile Search ={Search} />} />
           <Route path="/create-campaign" element={<CreateCampaign />} />
-          <Route path="/campaign-details/:id" element={<CampaignDetails />} />
+          <Route path="/campaign-details/:id" element={<CampaignDetails/>} />
         </Routes>
       </div>
     </div>

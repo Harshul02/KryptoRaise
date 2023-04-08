@@ -24,10 +24,19 @@ import {
 } from "react-share";
 
 
-const FundCard = ({ owner, title, description, target, deadline, amountCollected, image,category, handleClick },form) => {
+const FundCard = ({ owner, title, description, target, deadline, amountCollected, image,category, handleClick},form) => {
   const remainingDays = daysLeft(deadline);
   const progressPercentage = Math.floor((amountCollected / target) * 100);
   const navigate = useNavigate();
+  // const handleScroll = (event) => {
+  //   event.preventDefault();
+  //   const targetDiv = document.querySelector("#sharingiscaring");
+  //   if(targetDiv){
+  //   setTimeout(() => {
+  //     targetDiv.scrollIntoView({ behavior: "smooth" });
+  //   }, 100);
+  // }
+  // };
   useEffect(() => {
     const unlisten = navigate((location, action) => {
       if (location.hash) {
@@ -80,12 +89,14 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
             <img src={thirdweb} alt="user" className="w-1/2 h-1/2 object-contain"/>
           </div>
           <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate">by <span className="text-[#b2b3bd]">{owner}</span></p>
-          <HashLink smooth to = '#sharing'>
+          <HashLink smooth to= '#sharingiscaring'>
           <div className="w-[36px] h-[36px] rounded-full flex justify-center items-center bg-[#808191] hover hover:scale-125 duration-300" title="Share">
-          <img src={shareicon} alt="user" className="w-1/2 h-1/2 object-contain"/>
+            
+          <img src={shareicon} alt="user"  className="w-1/2 h-1/2 object-contain"/>
+          
           </div>
           </HashLink>
-          
+         
         </div>
       </div>
     </div>
