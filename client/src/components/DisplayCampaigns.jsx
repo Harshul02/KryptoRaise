@@ -70,12 +70,11 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
       {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
-     :
 
       {!isLoading && filteredCampaigns.length>0 && (
          <div className="mt-10">
       
-      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count})</h1>
+      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count}) </h1>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
       
