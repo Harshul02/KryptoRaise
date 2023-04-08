@@ -119,13 +119,13 @@ const CampaignDetails = () => {
 
     <div>
   <h4 className="font-epilogue font-semibold text-2xl text-white uppercase mb-4">Top Donators</h4>
-
   <div className="flex flex-col gap-4 overflow-x-auto text-center  p-4 rounded-xl">
+    {donators.length>0 ? (
   <div className="flex justify-between items-center bg-[#0c2c46] text-white rounded-2xl px-6 py-2">
     <p className="font-epilogue font-bold text-lg">Name</p>
     <p className="font-epilogue font-bold text-lg">Address</p>
     <p className="font-epilogue font-bold text-lg">Donation Amount</p>
-  </div>
+  </div>): ("")}
   {donators.length > 0 ? donators.map((item, index) => (
     <div key={`${item.donator}-${index}`} className="flex justify-between items-center bg-[#15446a] hover:bg-[#113a5b] rounded-full px-6 py-2">
       <div className="flex items-center">
