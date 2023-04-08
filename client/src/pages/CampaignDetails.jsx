@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
-
+import './campignDetails.css';
 import { useStateContext } from '../context';
 import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
@@ -28,6 +28,16 @@ import {
 
 const CampaignDetails = () => {
   const { state } = useLocation();
+  useEffect(() => {
+    const highlightTimeout = setTimeout(() => {
+      const highlightElement = document.querySelector(".highlight");
+      if (highlightElement) {
+        highlightElement.classList.add("highlight-end");
+      }
+    }, 2000); 
+
+    return () => clearTimeout(highlightTimeout);
+  }, []);
   const navigate = useNavigate();
   const { donate, getDonations, contract, address } = useStateContext();
 
@@ -175,11 +185,10 @@ const CampaignDetails = () => {
                 handleClick={handleDonate}
               />
             </div>
-            <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase my-5" id='sharing'>Share</h4>
+            <div className='highlight my-3 py-2 px-3'>
+            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase " id='sharing'>Share</h4>
 
-              <div className="mt-[20px]">
-                {/* <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify"> */}
+              <div className="mt-[20px] ">
                 <FacebookShareButton 
                 url={currentPageURl}
                 quote={"Please donate to help poor people"}
@@ -196,15 +205,6 @@ const CampaignDetails = () => {
               className="hover hover:scale-125 mx-4 duration-300">
                 <EmailIcon size={40} round={true} />
               </EmailShareButton>
-
-              {/* <LinkedinShareButton
-              url={currentPageURl}
-              title={"Please Donate for " + state.owner}
-              summary={state.description}
-              source={"www.google.com"}
-              className="hover hover:scale-125 duration-300">
-                <LinkedinIcon size={40} round={true} />
-              </LinkedinShareButton> */}
 
               <TelegramShareButton
               url = {currentPageURl}
@@ -230,7 +230,6 @@ const CampaignDetails = () => {
               className="hover hover:scale-125 duration-300">
                 <WhatsappIcon size={40} round={true} />
               </WhatsappShareButton>
-              {/* </p> */}
               </div>
     </div>
           </div>
