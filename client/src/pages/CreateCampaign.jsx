@@ -109,7 +109,7 @@ const CreateCampaign = () => {
   required
 >
   <option value="" className="bg-gray-800 text-white py-2 px-4">Select category</option>
-  <option value="Education and Learning" className="bg-gray-800 text-white py-2 px-4">Education and Learning</option>
+  <option value="Education and Learning" className="bg-gray-800 text-white py-4 px-4">Education and Learning</option>
   <option value="Environmental Causes" className="bg-gray-800 text-white py-2 px-4">Environmental Causes</option>
   <option value="Health and Medical Expenses" className="bg-gray-800 text-white py-2 px-4">Health and Medical Expenses</option>
   <option value="Humanitarian Aid and Disaster Relief" className="bg-gray-800 text-white py-2 px-4">Humanitarian Aid and Disaster Relief</option>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
-
+import './campignDetails.css';
 import { useStateContext } from '../context';
 import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
@@ -28,6 +28,16 @@ import {
 
 const CampaignDetails = ({targetdivref}) => {
   const { state } = useLocation();
+  useEffect(() => {
+    const highlightTimeout = setTimeout(() => {
+      const highlightElement = document.querySelector(".highlight");
+      if (highlightElement) {
+        highlightElement.classList.add("highlight-end");
+      }
+    }, 2000); 
+
+    return () => clearTimeout(highlightTimeout);
+  }, []);
   const navigate = useNavigate();
   const { donate, getDonations, contract, address } = useStateContext();
 
@@ -110,13 +120,13 @@ const CampaignDetails = ({targetdivref}) => {
 
     <div>
   <h4 className="font-epilogue font-semibold text-2xl text-white uppercase mb-4">Top Donators</h4>
-
   <div className="flex flex-col gap-4 overflow-x-auto text-center  p-4 rounded-xl">
+    {donators.length>0 ? (
   <div className="flex justify-between items-center bg-[#0c2c46] text-white rounded-2xl px-6 py-2">
     <p className="font-epilogue font-bold text-lg">Name</p>
     <p className="font-epilogue font-bold text-lg">Address</p>
     <p className="font-epilogue font-bold text-lg">Donation Amount</p>
-  </div>
+  </div>): ("")}
   {donators.length > 0 ? donators.map((item, index) => (
     <div key={`${item.donator}-${index}`} className="flex justify-between items-center bg-[#15446a] hover:bg-[#113a5b] rounded-full px-6 py-2">
       <div className="flex items-center">
@@ -176,10 +186,10 @@ const CampaignDetails = ({targetdivref}) => {
                 handleClick={handleDonate}
               />
             </div>
-            <div ref={targetdivref} id='targetdiv'>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase my-5">Share</h4>
+            <div ref={targetdivref} id='targetdiv' className='highlight my-3 py-2 px-3'>
+            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase ">Share</h4>
 
-              <div className="mt-[20px]" id='sharingiscaring'>
+              <div className="mt-[20px]">
                 {/* <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify"> */}
                 <FacebookShareButton 
                 url={currentPageURl}
@@ -198,7 +208,14 @@ const CampaignDetails = ({targetdivref}) => {
                 <EmailIcon size={40} round={true} />
               </EmailShareButton>
 
-             
+              {/* <LinkedinShareButton
+              url={currentPageURl}
+              title={"Please Donate for " + state.owner}
+              summary={state.description}
+              source={"www.google.com"}
+              className="hover hover:scale-125 duration-300">
+                <LinkedinIcon size={40} round={true} />
+              </LinkedinShareButton> */}
 
               <TelegramShareButton
               url = {currentPageURl}
@@ -224,7 +241,6 @@ const CampaignDetails = ({targetdivref}) => {
               className="hover hover:scale-125 duration-300">
                 <WhatsappIcon size={40} round={true} />
               </WhatsappShareButton>
-              {/* </p> */}
               </div>
     </div>
           </div>

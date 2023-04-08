@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { tagType, thirdweb, shareicon } from '../assets';
 import { daysLeft } from '../utils';
 import { HashLink } from 'react-router-hash-link';
+
 import {
   EmailIcon,
   FacebookIcon,
@@ -24,7 +25,7 @@ import {
 } from "react-share";
 
 
-const FundCard = ({ owner, title, description, target, deadline, amountCollected, image,category, handleClick},form) => {
+const FundCard = ({ owner, title, description, target, deadline, amountCollected, image,category, handleClick },form) => {
   const remainingDays = daysLeft(deadline);
   const progressPercentage = Math.floor((amountCollected / target) * 100);
   const navigate = useNavigate();
@@ -91,9 +92,7 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
           <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate">by <span className="text-[#b2b3bd]">{owner}</span></p>
           <HashLink smooth to= '#sharingiscaring'>
           <div className="w-[36px] h-[36px] rounded-full flex justify-center items-center bg-[#808191] hover hover:scale-125 duration-300" title="Share">
-            
-          <img src={shareicon} alt="user"  className="w-1/2 h-1/2 object-contain"/>
-          
+          <img src={shareicon} alt="user" className="w-1/2 h-1/2 object-contain"/>
           </div>
           </HashLink>
          
