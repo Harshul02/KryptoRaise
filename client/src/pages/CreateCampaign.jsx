@@ -117,6 +117,7 @@ const CreateCampaign = () => {
   <option value="Social Causes and Activism" className="bg-gray-800 text-white py-2 px-4">Social Causes and Activism</option>
   <option value="Technology and Innovation" className="bg-gray-800 text-white py-2 px-4">Technology and Innovation</option>
   <option value="Wildlife and Animal Conservation" className="bg-gray-800 text-white py-2 px-4">Wildlife and Animal Conservation</option>
+  <option value="Others" className="bg-gray-800 text-white py-2 px-4">Others</option>
 </select>
 
 </label>

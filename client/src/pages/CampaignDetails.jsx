@@ -191,44 +191,43 @@ const CampaignDetails = () => {
               <EmailShareButton
               url={currentPageURl}
               subject = {"Crowd Funding"}
-              body={`Check out this link: ${currentPageURl}`}
+              body={`${state.description}\nPlease donate to help other people\nDonate here: `}
               separator={''}
               className="hover hover:scale-125 mx-4 duration-300">
                 <EmailIcon size={40} round={true} />
               </EmailShareButton>
 
-              <LinkedinShareButton
+              {/* <LinkedinShareButton
               url={currentPageURl}
               title={"Please Donate for " + state.owner}
               summary={state.description}
-              source={"http://127.0.0.1:5173/campaign-details/re"}
+              source={"www.google.com"}
               className="hover hover:scale-125 duration-300">
                 <LinkedinIcon size={40} round={true} />
-              </LinkedinShareButton>
+              </LinkedinShareButton> */}
 
               <TelegramShareButton
               url = {currentPageURl}
               title = {"Please donate for " + state.owner+ "\n" + state.description}
               summary={state.description} 
-              className="hover hover:scale-125 mx-4 duration-300">
+              className="hover hover:scale-125 duration-300">
                 <TelegramIcon size={40} round={true} />
               </TelegramShareButton>
 
               <TwitterShareButton
-              url={currentPageURl}
-              title={"Please donate for " + state.owner}
-              via={"http://www.google.com"}
-              hashtags={"#donateforpoor"}
-              className="hover hover:scale-125 duration-300">
+              url={currentPageURl+ " \n"}
+              title={"Please donate for " + state.owner+"\n"}
+              via={"MyFunding\n"}
+              hashtags={["donateforpoor"]}
+              className="hover hover:scale-125 mx-4 duration-300">
                 <TwitterIcon size={40} round={true} />
               </TwitterShareButton>
 
               <WhatsappShareButton
               url={currentPageURl}
-              title = {"Please donate for " + state.owner}
+              title = {`${state.description}\nPlease donate for ${state.owner}\nDonate here: `}
               separator={" "}
-              body={state.description}
-              className="hover hover:scale-125 mx-4 duration-300">
+              className="hover hover:scale-125 duration-300">
                 <WhatsappIcon size={40} round={true} />
               </WhatsappShareButton>
               {/* </p> */}
