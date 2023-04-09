@@ -16,7 +16,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.4",
     "react-router-hash-link": "^2.4.3",
-    "react-share": "^4.4.1"
+    "react-share": "^4.4.1",
+    "tailwind-scrollbar": "^3.0.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^2",

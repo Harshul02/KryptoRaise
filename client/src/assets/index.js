@@ -23,6 +23,8 @@ import social from './social.svg';
 import tech from './tech.svg';
 import wildlife from './wildlife.svg';
 import others from './others1.png'
+import category from './categoryy.svg'
+
 
 
 
@@ -51,5 +53,6 @@ export {
   social,
   tech,
   wildlife,
-  others
+  others,
+  category
 };
