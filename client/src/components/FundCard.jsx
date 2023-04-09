@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { tagType, thirdweb, shareicon } from '../assets';
 import { daysLeft } from '../utils';
 import { HashLink } from 'react-router-hash-link';
+import './fundcard.css';
 
 import {
   EmailIcon,
@@ -43,7 +44,7 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
   return (
     <div>
       {progressPercentage<100  &&  (
-    <div className="sm:w-[288px] w-full rounded-[15px] bg-[#081c2c] cursor-pointer shadow-lg transform hover:scale-105 transition-all duration-300" onClick={handleClick}>
+    <div className="fc sm:w-[288px]  rounded-[15px] bg-[#081c2c] cursor-pointer shadow-lg transform hover:scale-105 transition-all duration-300" onClick={handleClick}>
       <div className="relative">
         <img src={image} alt="fund" className="w-full h-[158px] object-cover rounded-t-[15px]"/>
         <div className="absolute top-0 right-0 bg-[#d63031] text-white py-1 px-2 rounded-bl-[15px]">{remainingDays} days left</div>
@@ -57,7 +58,7 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
 
         <div className="block">
           <h3 className="font-epilogue font-semibold text-[16px] text-white text-left leading-[26px] truncate">{title}</h3>
-          <p className="mt-[5px] font-epilogue font-normal text-[#808191] text-left leading-[18px] truncate">{description}</p>
+          <p className="trun mt-[5px] font-epilogue font-normal text-[#808191] text-left leading-[18px] truncate">{description}</p>
         </div>
         <div className="flex flex-col mt-[15px]">
           <div className="flex items-center justify-between text-[#b2b3bd] text-sm font-semibold">
