@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/" element={<Home Search={Search}/>} />
           <Route path="/profile" element={<Profile Search ={Search} />} />
           <Route path="/create-campaign" element={<CreateCampaign />} />
-          { <Route path="/campaign-details/:id" element={<CampaignDetails/>} />}
+          {!isProfilePage && <Route path="/campaign-details/:id" element={<CampaignDetails/>} />}
           <Route path ="/:categoryname" element = {<CampaignList Search={Search}/>} />
         </Routes>
       </div>
