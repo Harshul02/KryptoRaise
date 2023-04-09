@@ -38,8 +38,10 @@ const Sidebar = () => {
 
       <div className="flex-1 flex flex-col justify-between items-center bg-[#000000] rounded-[20px] w-[76px] py-4 mt-12">
         <div className="flex flex-col justify-center items-center gap-3">
-          <span className='text-white font-semibold'>CATEGORIES</span>
-          {navlinks.map((link) => (
+        <span className="text-white font-semibold text-sm px-2 py-1 rounded-full border-b-2 border-gray-700">
+      CATEGORIES
+    </span>          
+    {navlinks.map((link) => (
             <Icon 
               key={link.name}
               {...link}

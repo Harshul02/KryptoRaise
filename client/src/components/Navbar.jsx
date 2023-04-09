@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import { useStateContext } from '../context';
 import { CustomButton } from './';
-import { logo, menu, search, thirdweb,logout } from '../assets';
+import { logo, menu, search, thirdweb,logout,category } from '../assets';
 import { navlinks } from '../constants'; 
 import Navs from './Navs';
 import { HashLink } from 'react-router-hash-link';
@@ -48,6 +48,13 @@ const Navbar = ({setSearch}) => {
   <input type="text" class="search-input " onChange={handleChange} placeholder="Search for campaigns" />
 <span className='text-white py-1 mr-2 font-semibold '>Search</span>
 </div>
+{/* <div className="lg:flex-1 flex flex-row max-w-[458px]  py-2 pl-4 pr-2 h-[52px] bg-[#1c1c24] rounded-[100px]">
+        <input type="text" placeholder="Search for campaigns" className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent outline-none" />
+        
+        <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
+          <img src={search} alt="search" className="w-[15px] h-[15px] object-contain"/>
+        </div>
+      </div> */}
   
      
       <div className="sm:flex hidden flex-row justify-end gap-4">
@@ -97,28 +104,18 @@ const Navbar = ({setSearch}) => {
                     alt={link.name}
                     className={`w-[24px] h-[24px] object-contain ${isActive === link.name ? 'grayscale-0' : 'grayscale'}`}
                   />
-                  {/* {link.dropdownItems && link.dropdownItems.length > 0 && (
-                    <ul className="absolute top-full left-0 w-full bg-gray-100">
-                    {link.dropdownItems.map((dropdownItem) => (
-                    <li
-                      key={dropdownItem.name}
-                      // className="px-4 py-2 hover:bg-gray-200"
-                      className={`flex p-4 ${isActive === link.name && 'bg-[#3a3a43]'}`}
-                      onClick={() => handleDropdownItemClick(dropdownItem)}
-                    >
-                    {dropdownItem.name}
-                </li>
-              ))}
-            </ul>
-          )} */}
+                
+          
                   <p className={`ml-[20px] font-epilogue font-semibold text-[14px] ${isActive === link.name ? 'text-[#1dc071]' : 'text-[#808191]'}`}>
                     {link.name}
                   </p>
                   
                 </li>
               ))}
-            </ul>
-            <select name="dropoption" id="dropoption" className={`flex p-4 mb-4 bg-[#1c1c24] text-[#808191] border-none`}>
+            <li className='flex p-4 mt-[-17px] ml-[-15px]'>
+            <Icon styles="w-[52px] h-[52px] " imgUrl={category} />
+            
+            <select name="dropoption" id="dropoption" className={`bg-[#1c1c24] text-[#808191] border-none`}>
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`} disabled selected>Category</option>
               <HashLink smooth to="#cam">
               <option value="Environmental Causes" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`}>Environmental Causes</option></HashLink>
@@ -131,7 +128,9 @@ const Navbar = ({setSearch}) => {
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Wildlife and Animal Conservation</option>
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Others</option>
             </select>
-
+</li>
+            </ul>
+            
             <div className="flex mx-4">
             <CustomButton 
               btnType="button"

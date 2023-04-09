@@ -1,50 +1,103 @@
-
-
-  .search-box {
-    display: flex;
-    align-items: center;
-    transform:  translate(-50%,50%);
-    background: #081c2c;
-    height: 40px;
-    border-radius: 40px;
-    padding: 0px;
-    overflow: hidden;
-    margin-top: -10px;
-
-}
-
-
-.search-box:hover > .search-input {
-    width: 240px;
-    padding: 0 6px;
-}
-
-.search-box:hover > .search-button {
-  background: #252d37;
-  color : #2f3640;
+.search-box {
+  display: flex;
+  align-items: center;
+  transform: translate(-100%, 50%);
+  background: #081c2c;
+  height: 40px;
+  border-radius: 40px;
+  padding: 0px;
+  overflow: hidden;
+  margin-top: -10px;
 }
 
 .search-button {
-    background: #081c2c;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: #081c2c;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-input {
-    border:none;
-    background: none;
-    outline:none;
-    float:left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 240px;
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 240px;
+}
 
+@media screen and (min-width: 320px) and (max-width: 659px) {
+  .search-box {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+  
+  .search-input {
+    width: 60%;
+    max-width: 320px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 639px) {
+  .search-box {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  
+  .search-input {
+    width: 65%;
+    max-width: 320px;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .search-box {
+    justify-content: center;
+    transform: none;
+    width: 100%;
+    transform: translateY(50%);
+
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .search-box {
+    justify-content: center;
+    transform: translateY(50%);
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1760px) {
+  .search-box {
+    justify-content: center;
+    transform: translateY(50%);
+    max-width: 80%;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
