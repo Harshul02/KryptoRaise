@@ -5,11 +5,12 @@ import { opoy7 } from './assets';
 
 
 import { Sidebar, Navbar } from './components';
-import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
+import { CampaignDetails, CreateCampaign, Home, Profile,CampaignList } from './pages';
 
 const App = () => {
 
   const [Search,setSearch] = useState("");
+  
   const backgroundImageStyle = {
     backgroundImage: `url(${opoy7})`,
     backgroundRepeat: 'no-repeat',
@@ -30,7 +31,8 @@ const App = () => {
           <Route path="/" element={<Home Search={Search}/>} />
           <Route path="/profile" element={<Profile Search ={Search} />} />
           <Route path="/create-campaign" element={<CreateCampaign />} />
-          <Route path="/campaign-details/:id" element={<CampaignDetails />} />
+          <Route path="/campaign-details/:id" element={<CampaignDetails/>} />
+          <Route path ="/:categoryname" element = {<CampaignList Search={Search}/>} />
         </Routes>
       </div>
     </div>
