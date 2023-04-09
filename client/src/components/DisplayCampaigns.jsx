@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logo, menu, search, thirdweb,logout } from '../assets';
 import "./navbar.css";
 
@@ -8,10 +9,10 @@ import FundCard from './FundCard';
 import { loader } from '../assets';
 
 
-const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
+const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) => {
   const navigate = useNavigate();
   const filteredCampaigns = campaigns.filter((campaign) =>{
-    if(Search.toLowerCase()==''){
+    if(!categoryname && Search.toLowerCase()==''){
       return campaign
     }
     
@@ -19,7 +20,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
   });
   const count = filteredCampaigns.length;
   const campaign1 = campaigns.filter((campaign)=>{
-    return  campaign.category === "Environmental Causes" && campaign.title.toLowerCase().includes(Search.toLowerCase())
+    return campaign.category==="Environmental Causes" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
   const count1 = campaign1.length;
   const campaign2 = campaigns.filter((campaign)=>{
@@ -64,26 +65,33 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
   }
   
   return (
+
     
     
     <div className="ml-0 sm:ml-20">
       {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
-
-      {!isLoading && filteredCampaigns.length>0 && (
-         <div className="mt-10">
-      
-      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count}) </h1>
-
-      <div className="flex flex-wrap mt-[20px] gap-[26px]">
-      
-
-        {campaigns.length === 0 && (
+      :
+      { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
             You have not created any campigns yet
           </p>
         )}
+      :
+      
+      
+{!isLoading && filteredCampaigns.length>0 && (
+  
+         <div className="mt-10" id='all'>
+      
+      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count}) </h1>
+
+      <div className="flex flex-wrap mt-[20px] gap-[26px]">
+        
+      
+
+        
 
         {!isLoading && campaigns.length > 0 && filteredCampaigns.map((campaign) => <FundCard 
           key={campaign.id}
@@ -93,18 +101,22 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
         
       </div>  
       </div>
-      )}
+)}
+ 
       
-
-
-
-     
-     {!isLoading && campaign1.length>0 &&(
-      <div> 
-        
-        
-     
-      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Environmental Causes ({count1})</h1>
+{!isLoading && campaign1.length>0 &&(
+    
+      <div  className="mt-12">
+        {isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )} 
+        <h1 className="font-epilogue font-semibold text-[18px]  text-white text-left">Environmental Causes ({count1})</h1>
 
     <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
@@ -115,13 +127,21 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
   />)}
 </div>
 </div>
-    )}
+
+)}
+
      
-
-
-
-{ !isLoading && campaign2.length>0 &&(
+{!isLoading && campaign2.length>0 &&(
 <div className='mt-12'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )}
   
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Education and Learning ({count2})</h1>
 
@@ -135,13 +155,19 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
 </div>
 
 </div>
-  )}
-
-
-
+)}
 
 {!isLoading && campaign3.length>0 && ( 
 <div className='mt-12'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )}
 
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Health and Medical Expenses ({count3})</h1>
 
@@ -157,14 +183,21 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
 </div>
 )}
 
-
-
 {!isLoading && campaign4.length>0 && (
 
 
 
 
 <div className='mt-12'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )}
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Humanitarian Aid and Disaster Relief ({count4})</h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
@@ -183,12 +216,18 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
 
 )}
 
-
-
-
 {!isLoading && campaign5.length>0 &&(
 
 <div className='mt-12'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )}
 
 
 
@@ -209,10 +248,17 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
 </div>
 )}
 
-
-
 {!isLoading && campaign6.length>0 && (
 <div className='mt-12'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campaigns yet
+          </p>
+        )}
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Social Causes and Activism ({count6})</h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
@@ -239,6 +285,15 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
 
 {!isLoading && campaign7.length>0 && (
 <div className='mt-12'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaign7.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )}
 
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Technology and Innovation ({count7})</h1>
 
@@ -254,8 +309,18 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
 
 </div>
 )}
+
 {!isLoading && campaign8.length>0 && (
 <div className='mt-12'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )}
 
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Wildlife and Animal Conservation ({count8})</h1>
 
@@ -271,8 +336,18 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search}) => {
 
 </div>
 )}
+
 {!isLoading && campaign9.length>0 && (
-<div className='mt-12'>
+<div className='mt-12' id='others'>
+{isLoading &&(
+         <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
+      )}
+      :
+      { !isLoading && campaigns.length === 0 && (
+          <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
+            You have not created any campigns yet
+          </p>
+        )}
 
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Others ({count9})</h1>
 

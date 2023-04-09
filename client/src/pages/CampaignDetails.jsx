@@ -26,7 +26,7 @@ import {
 } from "react-share";
 
 
-const CampaignDetails = ({targetdivref}) => {
+const CampaignDetails = () => {
   const { state } = useLocation();
   useEffect(() => {
     const highlightTimeout = setTimeout(() => {
@@ -186,11 +186,10 @@ const CampaignDetails = ({targetdivref}) => {
                 handleClick={handleDonate}
               />
             </div>
-            <div ref={targetdivref} id='targetdiv' className='highlight my-3 py-2 px-3'>
+            <div  id='sharingiscaring' className='highlight my-3 py-2 px-3'>
             <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase ">Share</h4>
 
               <div className="mt-[20px]">
-                {/* <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify"> */}
                 <FacebookShareButton 
                 url={currentPageURl}
                 quote={"Please donate to help poor people"}

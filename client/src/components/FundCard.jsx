@@ -29,15 +29,7 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
   const remainingDays = daysLeft(deadline);
   const progressPercentage = Math.floor((amountCollected / target) * 100);
   const navigate = useNavigate();
-  // const handleScroll = (event) => {
-  //   event.preventDefault();
-  //   const targetDiv = document.querySelector("#sharingiscaring");
-  //   if(targetDiv){
-  //   setTimeout(() => {
-  //     targetDiv.scrollIntoView({ behavior: "smooth" });
-  //   }, 100);
-  // }
-  // };
+  
   useEffect(() => {
     const unlisten = navigate((location, action) => {
       if (location.hash) {

@@ -5,7 +5,7 @@ import { opoy7 } from './assets';
 
 
 import { Sidebar, Navbar } from './components';
-import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
+import { CampaignDetails, CreateCampaign, Home, Profile,CampaignList } from './pages';
 
 const App = () => {
 
@@ -32,6 +32,7 @@ const App = () => {
           <Route path="/profile" element={<Profile Search ={Search} />} />
           <Route path="/create-campaign" element={<CreateCampaign />} />
           <Route path="/campaign-details/:id" element={<CampaignDetails/>} />
+          <Route path ="/:categoryname" element = {<CampaignList Search={Search}/>} />
         </Routes>
       </div>
     </div>
