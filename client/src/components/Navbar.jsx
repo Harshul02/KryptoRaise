@@ -118,11 +118,18 @@ const Navbar = ({setSearch}) => {
                 </li>
               ))}
             </ul>
-            <select name="dropoption" id="dropoption" className={`flex p-4 mb-4 bg-[#1c1c24] text-[#808191] border-none`}>
-              <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`} disabled selected>Category</option>
-              <HashLink smooth to="#cam">
-              <option value="Environmental Causes" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`}>Environmental Causes</option></HashLink>
-              <option value="Education and Learning" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}><HashLink smooth to="#campaign1">Education and Learning</HashLink></option>
+  <select name="dropoption" id="dropoption" className={`flex p-4 mb-4 bg-[#1c1c24] text-[#808191] border-none`}>
+              <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`} disabled selected>
+                Category
+              </option>
+              <option value="Environmental Causes" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`}>
+                Environmental Causes
+              </option>
+              <option value="Education and Learning" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>
+                <Link to='/Environmental Causes'>
+                Education and Learning
+                </Link>
+              </option>
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Health and Medical Expenses</option>
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Humanitarian Aid and Disaster Relief</option>
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Personal and Family Emergencies</option>
@@ -130,7 +137,7 @@ const Navbar = ({setSearch}) => {
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Technology and Innovation</option>
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Wildlife and Animal Conservation</option>
               <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px]`}>Others</option>
-            </select>
+  </select>
 
             <div className="flex mx-4">
             <CustomButton 
