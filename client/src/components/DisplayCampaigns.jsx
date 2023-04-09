@@ -83,7 +83,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       
 {!isLoading && filteredCampaigns.length>0 && (
   
-         <div className="mt-10" id='all'>
+         <div id='all'>
       
       <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count}) </h1>
 

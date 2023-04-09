@@ -39,6 +39,7 @@ const CampaignDetails = () => {
     return () => clearTimeout(highlightTimeout);
   }, []);
   const navigate = useNavigate();
+
   const { donate, getDonations, contract, address } = useStateContext();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -61,13 +62,19 @@ const CampaignDetails = () => {
 
   const handleDonate = async () => {
     setIsLoading(true);
+    if(address){
+      await donate(state.pId, amount, name);
+      navigate('/');
+      setIsLoading(false);
+    }
+    else{
+      alert('Please connect your MetaMask wallet to proceed.');
+      setIsLoading(false);
+      return;
+    }
 
-    await donate(state.pId, amount,name); //change
-
-    navigate('/')
-    setIsLoading(false);
   }
-
+  
   const currentPageURl = window.location.href;
   return (
     <div>
