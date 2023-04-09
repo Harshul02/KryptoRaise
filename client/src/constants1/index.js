@@ -5,57 +5,74 @@ export const navlinks = [
   {
     name: 'book1',
     imgUrl: book1,
-    link: '/book1',
-    title:'book1',
-    toolTipText:'Education and Learning'
+    id: 'edu',
+    toolTipText:'Education and Learning',
+    link: '/Education and Learning'
+
   },
-  {
+  {  
     name: 'environment',
     imgUrl: environment,
-    link: '/environment',
-    toolTipText:'Environmental Causes'
+    id: 'environment',
+    toolTipText:'Environmental Causes',
+    link: '/Environmental Causes'
+
   },
   {
     name: 'health',
     imgUrl: health,
-    link: '/health',
-    toolTipText:'Health and Medical Expenses'
+    id: 'health',
+    toolTipText:'Health and Medical Expenses',
+    link: '/Health and Medical Expenses',
+
   },
   {
     name: 'humanitarian',
     imgUrl: humanitarian,
-    link: '/humanitarian',
-    toolTipText:'Humanitarian Aid '
+    id: 'humanitarian',
+    toolTipText:'Humanitarian Aid',
+    link: '/Humanitarian Aid and Disaster Relief',
+
+
   },
   {
     name: 'personal',
     imgUrl: personal,
-    link: '/personal',
-    toolTipText:'Personal and Family Needs'
+    id: 'personal',
+    toolTipText:'Personal and Family Needs',
+    link: '/Personal and Family Emergencies',
+
   },
   {
     name: 'social',
     imgUrl: social,
-    link: '/social',
-    toolTipText:'Social Causes and Activism'
+    id: 'social',
+    toolTipText:'Social Causes and Activism',
+    link:'/Social Causes and Activism'
+
   },
   {
     name: 'tech',
     imgUrl: tech,
-    link: '/tech',
-    toolTipText:'Technology and Innovation'
+    id: 'tech',
+    toolTipText:'Technology and Innovation',
+    link: '/Technology and Innovation'
+
   },
   {
     name: 'wildlife',
     imgUrl: wildlife,
-    link: '/wildlife',
-    toolTipText:'Wildlife Conservation'
+    id: 'wildlife',
+    toolTipText:'Wildlife Conservation',
+    link: '/Wildlife and Animal Conservation'
+
   },
   {
     name: 'others',
     imgUrl: others,
-    link: '/others',
-    toolTipText:'Others'
+    id: 'others',
+    toolTipText:'Others',
+    link:'/Others'
   },
   
 ];
