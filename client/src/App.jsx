@@ -28,13 +28,13 @@ const App = () => {
       </div>
 
       <div className="flex-1 max-sm:w-full  mx-auto sm:pr-5">
-        <Navbar setSearch={setSearch} />
+        <Navbar setSearch={setSearch} isProfilePage = {isProfilePage} />
 
         <Routes>
           <Route path="/" element={<Home Search={Search}/>} />
           <Route path="/profile" element={<Profile Search ={Search} />} />
           <Route path="/create-campaign" element={<CreateCampaign />} />
-          {!isProfilePage && <Route path="/campaign-details/:id" element={<CampaignDetails/>} />}
+          <Route path="/campaign-details/:id" element={<CampaignDetails/>} />
           <Route path ="/:categoryname" element = {<CampaignList Search={Search}/>} />
         </Routes>
       </div>

@@ -75,7 +75,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+            No Campaigns to Display
           </p>
         )}
       :
@@ -83,7 +83,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       
 {!isLoading && filteredCampaigns.length>0 && (
   
-         <div className="mt-10" id='all'>
+         <div id='all'>
       
       <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count}) </h1>
 
@@ -113,7 +113,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+            No Campaigns To Display
           </p>
         )} 
         <h1 className="font-epilogue font-semibold text-[18px]  text-white text-left">Environmental Causes ({count1})</h1>
@@ -139,7 +139,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+             No Campaigns To Display
           </p>
         )}
   
@@ -165,7 +165,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+             No Campaigns To Display
           </p>
         )}
 
@@ -184,10 +184,6 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 )}
 
 {!isLoading && campaign4.length>0 && (
-
-
-
-
 <div className='mt-12'>
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -195,7 +191,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+             No Campaigns To Display
           </p>
         )}
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Humanitarian Aid and Disaster Relief ({count4})</h1>
@@ -225,7 +221,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+             No Campaigns To Display
           </p>
         )}
 
@@ -256,7 +252,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campaigns yet
+             No Campaigns To Display
           </p>
         )}
 <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Social Causes and Activism ({count6})</h1>
@@ -291,7 +287,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaign7.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+            No Campaigns To Display
           </p>
         )}
 
@@ -318,7 +314,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+            No Campaigns To Display
           </p>
         )}
 
@@ -345,7 +341,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       :
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
-            You have not created any campigns yet
+             No Campaigns To Display
           </p>
         )}
 
