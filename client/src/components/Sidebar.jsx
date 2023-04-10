@@ -11,12 +11,12 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick, tooltipTe
 
   return (
     <div 
-      className={`w-[48px] h-[48px] rounded-[10px] ${isActive && isActive === name && 'bg-[#2c2f32]'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} 
+      className={`w-[48px] h-[48px] rounded-[10px] ${ isActive !== name && 'bg-[#2c2f32]'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} 
       onClick={handleClick}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      {!isActive ? (
+      {!isActive? (
         <img src={imgUrl} alt="fund_logo" className="w-1/2 h-1/2" />
       ) : (
         <img src={imgUrl} alt="fund_logo" className={`w-1/2 h-1/2 ${isActive !== name && 'grayscale'}`} />
@@ -30,9 +30,13 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
 
+  const handleLogoClick = () => {
+    setIsActive('dashboard');
+  };
+
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[83vh]">
-      <Link to="/">
+      <Link to="/" onClick={handleLogoClick}>
         <Icon styles="w-[52px] h-[52px] bg-[#2c2f32]" imgUrl={logo} />
       </Link>
 
