@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import { useStateContext } from '../context';
+import { useLocation } from 'react-router-dom';
 import { CustomButton } from './';
 import { logo, menu, search, thirdweb,logout,category } from '../assets';
 import { navlinks } from '../constants'; 
@@ -21,9 +22,13 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 
 const Navbar = ({setSearch,isProfilePage}) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const ispage = location.pathname ==="/" || location.pathname === "/profile" || location.pathname === "/create-campaign"|| 
+  location.pathname.startsWith("/campaign-details");
+
   const [isActive, setIsActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState('Category');
   const { connect, address } = useStateContext();
   function handleChange(event) {
     setSearch(event.target.value.toLowerCase());
@@ -37,7 +42,9 @@ const Navbar = ({setSearch,isProfilePage}) => {
   }
 
   const handleOptionChange = (event) => {
+    
     setSelectedOption(event.target.value);
+    setToggleDrawer(false);
     navigate(`/${event.target.value}`);
   };
 
@@ -94,6 +101,8 @@ const Navbar = ({setSearch,isProfilePage}) => {
                     setIsActive(link.name);
                     setToggleDrawer(false);
                     navigate(link.link);
+                   
+
                   }}
                 >
                   <img 
@@ -112,9 +121,9 @@ const Navbar = ({setSearch,isProfilePage}) => {
             <li className='flex p-4 mt-[-17px] ml-[-15px]'>
             <Icon styles="w-[52px] h-[52px] " imgUrl={category} />
             
-            <select name="dropoption" id="dropoption" disabled = {isProfilePage} className={`bg-[#1c1c24] text-[#808191] border-none`} value={selectedOption}
+            <select name="dropoption" id="dropoption" disabled = {isProfilePage} className={`bg-[#1c1c24] text-[#808191] border-none`} value={ispage?"Category":setSelectedOption}
       onChange={handleOptionChange}>
-              <option value="" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`} disabled selected>
+              <option value="Category" className={`flex p-4 ml-[20px] font-epilogue font-semibold text-[14px] border-none`} disabled selected>
                 Category
               </option>
 
