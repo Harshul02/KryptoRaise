@@ -49,7 +49,7 @@ const Navbar = ({setSearch,isProfilePage}) => {
   };
 
   return (
-    <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6" id='nav'>
+    <div className="flex md:flex-row flex-col-reverse justify-between mb-[40px] gap-6" id='nav'>
     
     
       <Navs />

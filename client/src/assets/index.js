@@ -24,6 +24,8 @@ import tech from './tech.svg';
 import wildlife from './wildlife.svg';
 import others from './others1.png'
 import category from './categoryy.svg'
+import user from './user.png'
+
 
 
 
@@ -54,5 +56,6 @@ export {
   tech,
   wildlife,
   others,
-  category
+  category,
+  user
 };
