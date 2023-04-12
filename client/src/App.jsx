@@ -19,6 +19,7 @@ const App = () => {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
+    backgroundAttachment : 'fixed',
   };
 
   return (
