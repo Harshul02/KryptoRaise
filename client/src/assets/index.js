@@ -25,6 +25,13 @@ import wildlife from './wildlife.svg';
 import others from './others1.png'
 import category from './categoryy.svg'
 import user from './user.png'
+import kf from './KF.png'
+import kfbg from './KFBG.png'
+import kfbold from './KFBOLD.png'
+import kryp from './kryp.png'
+import krypt from './krypt.png'
+import krypti from './krypti.png'
+import kryptoraise from './KRYPTORAISE.png'
 
 
 
@@ -57,5 +64,12 @@ export {
   wildlife,
   others,
   category,
-  user
+  user,
+  kf,
+  kryp,
+  krypt,
+  kfbg,
+  kfbold,
+  krypti,
+  kryptoraise
 };

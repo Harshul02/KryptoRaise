@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './sidebar.css'
-import { logo, sun } from '../assets';
+import { logo, sun, kf, kryp, krypt, kfbg, kfbold, krypti, kryptoraise } from '../assets';
 import { navlinks } from '../constants1';
 
 
@@ -37,7 +37,7 @@ const Sidebar = () => {
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[83vh]">
       <Link to="/" onClick={handleLogoClick}>
-        <Icon styles="w-[52px] h-[52px] bg-[#2c2f32]" imgUrl={logo} />
+        <Icon styles="w-[52px] h-[52px]" imgUrl={krypti} />
       </Link>
 
       <div className="flex-1 flex flex-col justify-between items-center bg-[#000000] rounded-[20px] w-[76px] py-4 mt-12">
