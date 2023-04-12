@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { wildlife } from '../assets';
 import "./navbar.css";
-import "./display.css";
 
 
 import FundCard from './FundCard';

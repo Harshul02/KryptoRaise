@@ -1,5 +1,0 @@
-hr {
-  height: 2px; /* set the height of the line */
-  background-image: linear-gradient(to right, transparent, #ccc, transparent); /* set a linear gradient background to fade the ends */
-  border: none; /* remove the border */
-}
