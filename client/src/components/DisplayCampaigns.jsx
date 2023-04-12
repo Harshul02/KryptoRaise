@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { logo, menu, search, thirdweb,logout } from '../assets';
+import { wildlife } from '../assets';
 import "./navbar.css";
 
 
@@ -83,9 +83,12 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       
 {!isLoading && filteredCampaigns.length>0 && (
   
-         <div id='all'>
+         <div id='all' >
       
-      <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({count}) </h1>
+      <h1 className="font-epilogue font-semibold text-18 text-white text-left">
+  {title} ({count})
+</h1>
+
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
         
@@ -98,7 +101,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
           {...campaign}
           handleClick={() => handleNavigate(campaign)}
         />)}
-        
+ <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
       </div>  
       </div>
 )}
@@ -106,7 +109,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       
 {!isLoading && campaign1.length>0 &&(
     
-      <div  className="mt-12">
+      <div>
         {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -125,6 +128,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
+           <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 </div>
 
@@ -132,7 +136,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
      
 {!isLoading && campaign2.length>0 &&(
-<div className='mt-12'>
+<div>
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -152,13 +156,14 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
+ <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 
 </div>
 )}
 
 {!isLoading && campaign3.length>0 && ( 
-<div className='mt-12'>
+<div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -178,13 +183,14 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
+   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 
 </div>
 )}
 
 {!isLoading && campaign4.length>0 && (
-<div className='mt-12'>
+<div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -206,6 +212,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
+   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 
 </div>
@@ -214,7 +221,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
 {!isLoading && campaign5.length>0 &&(
 
-<div className='mt-12'>
+<div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -239,13 +246,14 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     handleClick={() => handleNavigate(campaign)}
     
   />)}
+   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 
 </div>
 )}
 
 {!isLoading && campaign6.length>0 && (
-<div className='mt-12'>
+<div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -274,13 +282,14 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     handleClick={() => handleNavigate(campaign)}
    
   />)}
+   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 </div>
 
 )}
 
 {!isLoading && campaign7.length>0 && (
-<div className='mt-12'>
+<div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -301,13 +310,16 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
+  <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+  
+
 </div>
 
 </div>
 )}
 
 {!isLoading && campaign8.length>0 && (
-<div className='mt-12'>
+<div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -328,13 +340,14 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
+  <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 
 </div>
 )}
 
 {!isLoading && campaign9.length>0 && (
-<div className='mt-12' id='others'>
+<div id='others'>
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
@@ -355,6 +368,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
+  <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
 </div>
 
 </div>
