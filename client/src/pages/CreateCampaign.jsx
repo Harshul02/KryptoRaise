@@ -44,9 +44,10 @@ const CreateCampaign = () => {
   return (
     <div className="bg-[#081c2c] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       {isLoading && <Loader />}
-      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#25689e] rounded-[10px]">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white">Create a Campaign</h1>
-      </div>
+      <div className="flex justify-center items-center p-4 sm:min-w-[380px] bg-gradient-to-br from-[#25689e] to-[#2a4365] rounded-lg shadow-lg">
+  <h1 className="font-epilogue font-bold text-lg sm:text-3xl leading-10 sm:leading-14 text-white">Start a Campaign</h1>
+</div>
+
 
       <form onSubmit={handleSubmit} className="w-full mt-[65px] flex flex-col gap-[30px]">
         <div className="flex flex-wrap gap-[40px]">
@@ -74,11 +75,6 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('description', e)}
           />
 
-        <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
-          <img src={money} alt="money" className="w-[40px] h-[40px] object-contain"/>
-          <h4 className="font-epilogue font-bold text-[25px] text-white ml-[20px]">You will get 100% of the raised amount</h4>
-        </div>
-
         <div className="flex flex-wrap gap-[40px]">
           <FormField 
             labelName="Goal *"
@@ -105,7 +101,7 @@ const CreateCampaign = () => {
  <select 
   value={form.category} 
   onChange={(e) => handleFormFieldChange('category', e)}
-  className="py-3 px-4 outline-none border-2 border-gray-300 bg-[#081c2c] text-[#808191] rounded-md min-w-[300px]"
+  className="py-3 px-4 outline-none border-2 border-[#3a3a43] bg-[#081c2c] text-[#808191] rounded-md min-w-[300px]"
   required
 >
   <option value="" className="bg-gray-800 text-white py-2 px-4">Select category</option>
