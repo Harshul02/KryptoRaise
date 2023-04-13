@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './sidebar.css'
-import { logo, sun, kf, kryp, krypt, kfbg, kfbold, krypti, kryptoraise } from '../assets';
+import {  krypti } from '../assets';
 import { navlinks } from '../constants1';
 
 
