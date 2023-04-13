@@ -4,7 +4,7 @@ import './navbar.css';
 import { useStateContext } from '../context';
 import { useLocation } from 'react-router-dom';
 import { CustomButton } from './';
-import { logo, menu, search, thirdweb,logout,category, krypti } from '../assets';
+import {  menu, search,category, krypti } from '../assets';
 import { navlinks } from '../constants'; 
 import Navs from './Navs';
 
