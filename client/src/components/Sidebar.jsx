@@ -37,11 +37,12 @@ const Sidebar = () => {
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[83vh]">
       <Link to="/" onClick={handleLogoClick}>
-        <Icon styles="w-[52px] h-[52px]" imgUrl={krypti} />
+        {/* <Icon styles="w-[52px] h-[52px]" imgUrl={krypti} /> */}
+        <img src={krypti} alt="logo" className='w-[54px] h-[54px]' />
       </Link>
 
-      <div className="flex-1 flex flex-col justify-between items-center bg-[#000000] rounded-[20px] w-[76px] py-4 mt-12">
-        <div className="flex flex-col justify-center items-center gap-3">
+      <div className="flex-1 flex flex-col justify-between items-center bg-[#000000] rounded-[20px] w-[76px] py-4 mt-10">
+        <div className="flex flex-col justify-center items-center gap-2.5">
         <span className="text-white font-semibold text-sm px-2 py-1 rounded-full border-b-2 border-gray-700">
       CATEGORIES
     </span>          
