@@ -83,7 +83,7 @@ const Navbar = ({setSearch,isProfilePage}) => {
       {/* Small screen navigation */}
         <div className="sm:hidden flex justify-between items-center relative">
         <div className="w-[40px] h-[40px] rounded-[10px] flex justify-center items-center cursor-pointer">
-            <img src={krypti} alt="user" className="w-[60%] h-[60%] object-contain" />
+        <img src={krypti} alt="logo" className='w-[54px] h-[50px]' />
           </div>
 
           <img 
