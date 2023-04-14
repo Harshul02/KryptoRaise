@@ -6,26 +6,6 @@ import { daysLeft } from '../utils';
 import { HashLink } from 'react-router-hash-link';
 import './fundcard.css';
 
-import {
-  EmailIcon,
-  FacebookIcon,
-  InstapaperIcon,
-  LinkedinIcon,
-  TelegramIcon,
-  TwitterIcon,
-  WhatsappIcon
-} from "react-share";
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  InstapaperShareButton,
-  LinkedinShareButton,
-  TelegramShareButton,
-  TwitterShareButton,
-  WhatsappShareButton
-} from "react-share";
-
-
 const FundCard = ({ owner, title, description, target, deadline, amountCollected, image,category, handleClick },form) => {
   const remainingDays = daysLeft(deadline);
   const progressPercentage = Math.floor((amountCollected / target) * 100);

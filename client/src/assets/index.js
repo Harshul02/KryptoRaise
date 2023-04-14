@@ -5,7 +5,6 @@ import logout from './logout.svg';
 import payment from './payment.svg';
 import profile from './profile.svg';
 import sun from './sun.svg';
-import withdraw from './withdraw.svg';
 import tagType from './type.svg';
 import search from './search.svg';
 import menu from './menu.svg';
@@ -25,13 +24,7 @@ import wildlife from './wildlife.svg';
 import others from './others1.png'
 import category from './categoryy.svg'
 import user from './user.png'
-import kf from './KF.png'
-import kfbg from './KFBG.png'
-import kfbold from './KFBOLD.png'
-import kryp from './kryp.png'
-import krypt from './krypt.png'
 import krypti from './krypti.png'
-import kryptoraise from './KRYPTORAISE.png'
 
 
 
@@ -46,7 +39,6 @@ export {
   payment,
   profile,
   sun,
-  withdraw,
   search,
   menu,
   money,
@@ -65,11 +57,5 @@ export {
   others,
   category,
   user,
-  kf,
-  kryp,
-  krypt,
-  kfbg,
-  kfbold,
   krypti,
-  kryptoraise
 };
