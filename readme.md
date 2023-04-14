@@ -3,6 +3,14 @@
 
  A blockchain-based crowdfunding application developed as part of a collaborative project for "Solving for India
 Hackathon 2023".
+## 📄Index
+
+- [About](#ℹ️-about-the-project)
+  - [Built With](#🛠️-built-with)
+- [Getting Started](#📌-getting-started)
+  - [Pre-Requisites](#💻-prerequisites)
+  - [Running the Project](#🤖-running-the-project)
+
 
  ## ℹ️ About The Project
 
@@ -29,7 +37,7 @@ Follow the steps below to setup the project
 - Install and Setup Metamask extension in your browser
 - Add Polygon Mumbai testnet. Refer [here](https://medium.com/stakingbits/how-to-connect-polygon-mumbai-testnet-to-metamask-fc3487a3871f) 
 
-### 🤖 Running the project.
+### 🤖 Running the project
 
 
 1. **Fork** and **clone** the project to your local system

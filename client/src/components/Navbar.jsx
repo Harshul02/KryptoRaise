@@ -65,15 +65,17 @@ const Navbar = ({setSearch,isProfilePage}) => {
   
      
       <div className="sm:flex hidden flex-row justify-end gap-4">
-        <CustomButton 
-          btnType="button"
-          title={address ? 'Create a campaign' : 'Connect'}
-          styles={address ? 'bg-[#1dc071]' : 'bg-[#8c6dfd]'}
-          handleClick={() => {
-            if(address) navigate('create-campaign')
-            else connect()
-          }}
-        />
+      <CustomButton 
+  btnType="button"
+  title={address ? 'Start Campaign' : 'Connect'}
+  styles={address ? 'bg-[#3f6c8a] hover:bg-[#0f3046] hover:scale-105' : 'bg-[#3e00f7] hover:bg-[#0000c7] hover:scale-105'}
+  handleClick={() => {
+    if(address) navigate('create-campaign')
+    else connect()
+  }}
+/>
+
+      
        
 
       </div>
@@ -81,7 +83,7 @@ const Navbar = ({setSearch,isProfilePage}) => {
       {/* Small screen navigation */}
         <div className="sm:hidden flex justify-between items-center relative">
         <div className="w-[40px] h-[40px] rounded-[10px] flex justify-center items-center cursor-pointer">
-            <img src={krypti} alt="user" className="w-[60%] h-[60%] object-contain" />
+        <img src={krypti} alt="logo" className='w-[54px] h-[50px]' />
           </div>
 
           <img 
