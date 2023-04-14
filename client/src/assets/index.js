@@ -25,6 +25,7 @@ import others from './others1.png'
 import category from './categoryy.svg'
 import user from './user.png'
 import krypti from './krypti.png'
+import kf from './KF.png'
 
 
 
@@ -58,4 +59,5 @@ export {
   category,
   user,
   krypti,
+  kf,
 };
