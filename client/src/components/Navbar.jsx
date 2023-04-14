@@ -65,15 +65,17 @@ const Navbar = ({setSearch,isProfilePage}) => {
   
      
       <div className="sm:flex hidden flex-row justify-end gap-4">
-        <CustomButton 
-          btnType="button"
-          title={address ? 'Create a campaign' : 'Connect'}
-          styles={address ? 'bg-[#1dc071]' : 'bg-[#8c6dfd]'}
-          handleClick={() => {
-            if(address) navigate('create-campaign')
-            else connect()
-          }}
-        />
+      <CustomButton 
+  btnType="button"
+  title={address ? 'Start Campaign' : 'Connect'}
+  styles={address ? 'bg-[#3f6c8a] hover:bg-[#0f3046] hover:scale-105' : 'bg-[#3e00f7] hover:bg-[#0000c7] hover:scale-105'}
+  handleClick={() => {
+    if(address) navigate('create-campaign')
+    else connect()
+  }}
+/>
+
+      
        
 
       </div>
