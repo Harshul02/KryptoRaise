@@ -6,6 +6,8 @@ import { useStateContext } from '../context';
 import { money } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
+import Swal from 'sweetalert2';
+import './CreateCampaign.css'
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
@@ -34,8 +36,26 @@ const CreateCampaign = () => {
         await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)})
         setIsLoading(false);
         navigate('/');
+        Swal.fire({
+          title: 'Success',
+          text: 'Your campaign has been created',
+          icon: 'success',
+          customClass: {
+            container: 'my-swal-container',
+            title: 'my-swal-container swal-title',
+            content: ' my-swal-container swal-text',
+            confirmButton:'my-swal-container swal-footer',
+            icon: 'my-swal-container swal-icon--success',
+          },
+        });
       } else {
-        alert('Provide valid image URL')
+        Swal.fire({
+          title: 'Error',
+          text: 'Provide valid image URL',
+          icon: 'error',
+        });
+        
+        
         setForm({ ...form, image: '' });
       }
     })
