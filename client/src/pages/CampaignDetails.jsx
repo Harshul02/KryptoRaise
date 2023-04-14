@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import './campignDetails.css';
+import './CreateCampaign.css';
 import { useStateContext } from '../context';
 import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { user,tagType } from '../assets';
+import Swal from 'sweetalert2';
 import {
   EmailIcon,
   FacebookIcon,
@@ -65,9 +67,25 @@ const CampaignDetails = () => {
       await donate(state.pId, amount, name);
       navigate('/');
       setIsLoading(false);
+      Swal.fire({
+        title: 'Success',
+        text: 'Your Amount Has Successfully Reached The Creator',
+        icon: 'success',
+        customClass: {
+          container: 'my-swal-container',
+          title: 'my-swal-container swal-title',
+          content: ' my-swal-container swal-text',
+          confirmButton:'my-swal-container swal-footer',
+          icon: 'my-swal-container swal-icon--success',
+        },
+      });
     }
     else{
-      alert('Please connect your MetaMask wallet to proceed.');
+      Swal.fire({
+        title: 'Error',
+        text: 'Please connect your MetaMask wallet to proceed.',
+        icon: 'error',
+      });
       setIsLoading(false);
       return;
     }
