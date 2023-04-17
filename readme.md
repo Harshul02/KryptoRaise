@@ -30,24 +30,24 @@ Following technologies and libraries are used for the development of this projec
 
 ### 🤔 Methodology
 
-- <span style="font-size:18px; font-weight:bold">Choosing the Blockchain Platform:</span>Considering factors such as scalability, security, cost and developer community support we chose Ethereum as our blockchain     
+- **Choosing the Blockchain Platform:** Considering factors such as scalability, security, cost and developer community support we chose Ethereum as our blockchain     
   platform.
 
-- <span style="font-size:18px; font-weight:bold">Developing Smart Contracts:</span> Developed smart contracts using Solidity programming language. Smart contracts have functionality such as creating new campaigns,  
+- **Developing Smart Contracts:** Developed smart contracts using Solidity programming language. Smart contracts have functionality such as creating new campaigns,  
   funding campaigns, and releasing funds when a campaign reaches its funding goal.
 
-- <span style="font-size:18px; font-weight:bold">Deploying and testing the Smart Contracts</span> Deployed and tested smart contracts on the Polygon Mumbai Testnet using Thirdweb. 
+- **Deploying and testing the Smart Contracts:** Deployed and tested smart contracts on the Polygon Mumbai Testnet using Thirdweb. 
 
-- <span style="font-size:18px; font-weight:bold">Building the Front-End Using Reactjs</span> Developed the front-end of the application using Reactjs. Frontend includes a user interface for creating campaigns,    
+- **Building the Front-End Using Reactjs:** Developed the front-end of the application using Reactjs. Frontend includes a user interface for creating campaigns,    
   funding 
   campaigns, sharing campaigns, searching a particular campaign, viewing all campaigns,  viewing campaigns category-wise  and viewing campaign status.
 
-- <span style="font-size:18px; font-weight:bold">Connecting the Front-End to Contract using Ether.js</span> Connected the front-end with the smart contracts using Web3.js, which is a JavaScript library that allows   
+- **Connecting the Front-End to Contract using Ether.js:** Connected the front-end with the smart contracts using Web3.js, which is a JavaScript library that allows   
   you to interact with the Ethereum network.
 
-- <span style="font-size:18px; font-weight:bold">Testing the Application:</span> Tested the application thoroughly to ensure it works as intended. We Used  Polygon Mumbai Testnet to test the application.
+- **Testing the Application:** Tested the application thoroughly to ensure it works as intended. We Used  Polygon Mumbai Testnet to test the application.
 
-- <span style="font-size:18px; font-weight:bold">Deploying the Application:</span> Successfully deployed our Application on the Google Cloud Platform using the AMD instance.
+- **Deploying the Application:** Successfully deployed our Application on the Google Cloud Platform using the AMD instance.
 
 
 
