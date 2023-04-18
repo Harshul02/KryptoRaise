@@ -30,28 +30,28 @@ Following technologies and libraries are used for the development of this projec
 
 ### 🤔 Methodology
 
-- **Choosing the Blockchain Platform:** Considering factors such as scalability, security, cost and developer community support we chose Ethereum as our blockchain     
+- ***Choosing the Blockchain Platform:*** Considering factors such as scalability, security, cost and developer community support we chose Ethereum as our blockchain     
   platform.
 
-- **Developing Smart Contracts:** Developed smart contracts using Solidity programming language. Smart contracts have functionality such as creating new campaigns,  
+- ***Developing Smart Contracts:*** Developed smart contracts using Solidity programming language. Smart contracts have functionality such as creating new campaigns,  
   funding campaigns, and releasing funds when a campaign reaches its funding goal.
 
-- **Deploying and testing the Smart Contracts:** Deployed and tested smart contracts on the Polygon Mumbai Testnet using Thirdweb. 
+- ***Deploying and testing the Smart Contracts:*** Deployed and tested smart contracts on the Polygon Mumbai Testnet using Thirdweb. 
 
-- **Building the Front-End Using Reactjs:** Developed the front-end of the application using Reactjs. Frontend includes a user interface for creating campaigns,    
+- ***Building the Front-End Using Reactjs:*** Developed the front-end of the application using Reactjs. Frontend includes a user interface for creating campaigns,    
   funding 
   campaigns, sharing campaigns, searching a particular campaign, viewing all campaigns,  viewing campaigns category-wise  and viewing campaign status.
 
-- **Connecting the Front-End to Contract using Ether.js:** Connected the front-end with the smart contracts using Web3.js, which is a JavaScript library that allows   
+- ***Connecting the Front-End to Contract using Ether.js:*** Connected the front-end with the smart contracts using Web3.js, which is a JavaScript library that allows   
   you to interact with the Ethereum network.
 
-- **Testing the Application:** Tested the application thoroughly to ensure it works as intended. We Used  Polygon Mumbai Testnet to test the application.
+- ***Testing the Application:*** Tested the application thoroughly to ensure it works as intended. We Used  Polygon Mumbai Testnet to test the application.
 
-- **Deploying the Application:** Successfully deployed our Application on the Google Cloud Platform using the AMD instance.
+- ***Deploying the Application:*** Successfully deployed our Application on the Google Cloud Platform using the AMD instance.
 
 
 
-## 📌 Getting Started
+## 📌 Setting up the Project
 
 Follow the steps below to setup the project
 
