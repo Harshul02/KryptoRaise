@@ -51,7 +51,7 @@ Following technologies and libraries are used for the development of this projec
 
 
 
-## 📌 Getting Started
+## 📌 Setting up the Project
 
 Follow the steps below to setup the project
 
