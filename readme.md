@@ -91,19 +91,16 @@ npm run dev
 ```
 
 ## 📊 Result
-During the testing phase of our blockchain-based crowdfunding platform, we focused on ensuring that the platform was secure, stable, and user-friendly. Here are some of the key results achieved during this phase:
+During the development phase of our blockchain-based crowdfunding platform, we focused on ensuring that the platform was secure, stable, and user-friendly. Here are some of the key results achieved during this phase:
 
-- **Successful deployment on the Google Cloud Platform using the  AMD instance: We successfully deployed our platform on the Google cloud using the AMD instance, which     allowed us to test the platform in a safe and controlled environment.
+- **Successful deployment on the Google Cloud Platform using the  AMD instance:** We successfully deployed our platform on the Google cloud using the AMD instance, which allowed us to test the platform in a safe and controlled environment.
 
 - **Testing of key features:** We tested several key features of our platform, including the creation of campaigns, display campaign category wise,ability to  
   contribute funds, and the integration with MetaMask and the Matic network. We also tested the platform's security features, including its encryption algorithms  
   and user authentication procedures.
 
-- **Identification and resolution of bugs:** During the testing phase, we identified and resolved several bugs and issues, including issues with the user interface ,     search engine and issues with transaction processing. These bugs were promptly resolved, ensuring that the platform was stable and secure for users.
+- **Identification and resolution of bugs:** During the development, we identified and resolved several bugs and issues, including issues with the user interface ,     search engine and issues with transaction processing. These bugs were promptly resolved, ensuring that the platform was stable and secure for users.
 
-- **User feedback:** We gathered feedback from several users who tested our platform during the testing phase. Users provided valuable feedback on the platform's user   interface, functionality, and security features, which we used to make improvements to the platform.
-
-Overall, the testing phase of our blockchain-based crowdfunding platform was a success, and we were able to identify and resolve several issues before deploying it to Google Cloud Platform. The feedback gathered from users during this phase was also instrumental in making improvements to the platform and ensuring that it met the needs of our users.
 
 
 
