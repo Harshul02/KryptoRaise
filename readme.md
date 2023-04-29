@@ -5,19 +5,22 @@
 Hackathon 2023".
 ## 📄Index
 
-- [About](#ℹ️-about-the-project)
-  - [Built With](#🛠️-built-with)
-- [Getting Started](#📌-getting-started)
-  - [Pre-Requisites](#💻-prerequisites)
-  - [Running the Project](#🤖-running-the-project)
+- [About](#about-the-project)
+  - [Built With](#built-with)
+  - [Methodology](#methodology)
+- [Setting up the Project](#setting-up-the-project)
+  - [Pre-Requisites](#prerequisites)
+  - [Running the Project](#running-the-project)
+- [Result](#result)
+- [Contributions](#contributions)
 
 
- ## ℹ️ About The Project
+ ## About The Project
 
  KryptoRaise is a blockchain-based crowdfunding application which enables secure,transparent and decentralized funding of projects eliminating intermediaries and offering trustworthy transactions through blockchain technology.
 
 
-### 🛠️ Built With
+### Built With
 
 Following technologies and libraries are used for the development of this project.
 
@@ -28,7 +31,7 @@ Following technologies and libraries are used for the development of this projec
 - [ThirdWeb](https://thirdweb.com/)
 - [Hardhat](https://hardhat.org/)
 
-### 🤔 Methodology
+### Methodology
 
 - ***Choosing the Blockchain Platform:*** Considering factors such as scalability, security, cost and developer community support we chose Ethereum as our blockchain     
   platform.
@@ -51,16 +54,16 @@ Following technologies and libraries are used for the development of this projec
 
 
 
-## 📌 Setting up the Project
+## Setting up the Project
 
 Follow the steps below to setup the project
 
-### 💻 Prerequisites
+### Prerequisites
 
 - Install and Setup Metamask extension in your browser
 - Add Polygon Mumbai testnet. Refer [here](https://medium.com/stakingbits/how-to-connect-polygon-mumbai-testnet-to-metamask-fc3487a3871f) 
 
-### 🤖 Running the project
+### Running the project
 
 
 1. **Fork** and **clone** the project to your local system
@@ -90,7 +93,7 @@ Follow the link, deploy the contract and copy the deployed address
 npm run dev
 ```
 
-## 📊 Result
+## Result
 During the development phase of our blockchain-based crowdfunding platform, we focused on ensuring that the platform was secure, stable, and user-friendly. Here are some of the key results achieved during this phase:
 
 - **Successful deployment on the Google Cloud Platform using the  AMD instance:** We successfully deployed our platform on the Google cloud using the AMD instance, which allowed us to test the platform in a safe and controlled environment.
@@ -102,14 +105,32 @@ During the development phase of our blockchain-based crowdfunding platform, we f
 - **Identification and resolution of bugs:** During the development, we identified and resolved several bugs and issues, including issues with the user interface ,     search engine and issues with transaction processing. These bugs were promptly resolved, ensuring that the platform was stable and secure for users.
 
 
-##  Contributions
+## Contributions
 - [Aayush](https://github.com/aayushbisht)
   - Developed complete backend
   - Designed Navbar and Sidebar UI
+  - Designed and coded Display Campaign Section
   - Made the website responsive
   - Helped with GCP deployment
   - Created project video
   - Authored project's README file
+
+- [Harshul](https://github.com/harshul02)
+  - Developed frontend
+  - Designed and coded Dashbord
+  - Added Share Buttons
+  - Added functionality to start campaign and connect button
+  - GCP deployment
+  - Project Documentation
+
+- [Shravan](https://github.com/shravan-das)
+  - Developed frontend
+  - Designed and coded campaign and profile section
+  - Implemented Search functionality
+  - Coded the functionality of Sidebar
+  - Added functionality to hamburger category section
+  - Project Documentation
+
 
 
 
