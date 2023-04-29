@@ -102,6 +102,14 @@ During the development phase of our blockchain-based crowdfunding platform, we f
 - **Identification and resolution of bugs:** During the development, we identified and resolved several bugs and issues, including issues with the user interface ,     search engine and issues with transaction processing. These bugs were promptly resolved, ensuring that the platform was stable and secure for users.
 
 
+##  Contributions
+- [Aayush](https://github.com/aayushbisht)
+  - Developed complete backend
+  - Designed Navbar and Sidebar UI
+  - Made the website responsive
+  - Helped with GCP deployment
+  - Created project video
+  - Authored project's README file
 
 
 
