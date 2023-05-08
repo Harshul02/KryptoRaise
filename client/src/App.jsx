@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 import { Sidebar, Navbar } from './components';
 import { CampaignDetails, CreateCampaign, Home, Profile,CampaignList } from './pages';
+import Landing from './pages/Landing';
 
 const App = () => {
   const location = useLocation();
@@ -23,11 +24,11 @@ const App = () => {
   };
 
   return (
+    <>
     <div className="relative sm:-8 p-4 min-h-screen flex flex-row" style={backgroundImageStyle}>
       <div className="sm:flex hidden relative">
       {isProfilePage ?null : <Sidebar />}
       </div>
-
       <div className="flex-1 max-sm:w-full  mx-auto sm:pr-5">
         <Navbar setSearch={setSearch} isProfilePage = {isProfilePage} />
 
@@ -40,6 +41,7 @@ const App = () => {
         </Routes>
       </div>
     </div>
+    </>
   )
 }
 
