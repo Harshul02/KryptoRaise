@@ -25,6 +25,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton
 } from "react-share";
+import { Link } from 'react-router-dom';
 
 
 const CampaignDetails = () => {
@@ -100,6 +101,7 @@ const CampaignDetails = () => {
 </button>
 
       {isLoading && <Loader />}
+    
 
       <div className="w-full flex md:flex-row flex-col mt-4 gap-[30px]">
   <div className="flex-1 flex-col">
@@ -271,6 +273,7 @@ const CampaignDetails = () => {
           </div>
         </div>
       </div>
+     
     </div>
   )
 }
