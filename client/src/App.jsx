@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { opoy7 } from './assets';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -10,6 +11,7 @@ import { CampaignDetails, CreateCampaign, Home, Profile,CampaignList } from './p
 
 const App = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isProfilePage = location.pathname === "/profile" || location.pathname === "/create-campaign" || location.pathname.startsWith("/campaign-details")
 
   const [Search,setSearch] = useState("");
@@ -35,7 +37,7 @@ const App = () => {
           <Route path="/" element={<Home Search={Search}/>} />
           <Route path="/profile" element={<Profile Search ={Search} />} />
           <Route path="/create-campaign" element={<CreateCampaign />} />
-          <Route path="/campaign-details/:id" element={<CampaignDetails/>} />
+          <Route path="/campaign-details/:title" element={<CampaignDetails/>} />
           <Route path ="/:categoryname" element = {<CampaignList Search={Search}/>} />
         </Routes>
       </div>
