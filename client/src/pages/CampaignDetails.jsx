@@ -25,7 +25,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton
 } from "react-share";
-import { Link } from 'react-router-dom';
+
 
 
 const CampaignDetails = () => {
@@ -234,15 +234,6 @@ const CampaignDetails = () => {
               className="hover hover:scale-125 mx-4 duration-300">
                 <EmailIcon size={40} round={true} />
               </EmailShareButton>
-
-              {/* <LinkedinShareButton
-              url={currentPageURl}
-              title={"Please Donate for " + state.owner}
-              summary={state.description}
-              source={"www.google.com"}
-              className="hover hover:scale-125 duration-300">
-                <LinkedinIcon size={40} round={true} />
-              </LinkedinShareButton> */}
 
               <TelegramShareButton
               url = {currentPageURl}
