@@ -14,8 +14,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     if(!categoryname && Search.toLowerCase()==''){
       return campaign
     }
-    
-    // return Search.toLowerCase()=== '' ? campaign : campaign.title.toLowerCase().includes(Search.toLowerCase())
+
   });
   const count = filteredCampaigns.length;
   const campaign1 = campaigns.filter((campaign)=>{
