@@ -3,15 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
-import { money } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
+import ReCAPTCHA from "react-google-recaptcha";
 import Swal from 'sweetalert2';
 import './CreateCampaign.css'
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [isCaptchaFilled, setIsCaptchaFilled] = useState(false);
   const { createCampaign } = useStateContext();
   const [form, setForm] = useState({
     name: '',
@@ -22,6 +23,9 @@ const CreateCampaign = () => {
     image: '',
     category: ''
   });
+  const handleCaptchaChange = (response) => {
+    setIsCaptchaFilled(true);
+  }
 
   const handleFormFieldChange = (fieldName, e) => {
     setForm({ ...form, [fieldName]: e.target.value })
@@ -149,12 +153,18 @@ const CreateCampaign = () => {
           />
           
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <ReCAPTCHA
+        sitekey='6Ld9UfslAAAAAOPVgvvzXyuB_tjV8UaMZUD_pZQG'
+        onChange={handleCaptchaChange}/>
+        </div>
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 
               btnType="submit"
               title="Submit new campaign"
               styles="bg-[#25689e]"
+              disable = {isCaptchaFilled}
             />
           </div>
       </form>
