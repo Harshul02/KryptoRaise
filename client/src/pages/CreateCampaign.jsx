@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
-import { CustomButton, FormField, Loader } from '../components';
+import { CustomButton1, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
 import ReCAPTCHA from "react-google-recaptcha";
 import Swal from 'sweetalert2';
@@ -39,7 +39,7 @@ const CreateCampaign = () => {
         setIsLoading(true)
         await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)})
         setIsLoading(false);
-        navigate('/');
+        navigate('/dashboard');
         Swal.fire({
           title: 'Success',
           text: 'Your campaign has been created',
@@ -160,7 +160,7 @@ const CreateCampaign = () => {
         </div>
 
           <div className="flex justify-center items-center mt-[40px]">
-            <CustomButton 
+            <CustomButton1 
               btnType="submit"
               title="Submit new campaign"
               styles="bg-[#25689e]"
