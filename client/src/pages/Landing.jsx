@@ -3,6 +3,13 @@ import Land4 from "./land4.png";
 import Logo from "./krypti.png";
 import "animate.css/animate.min.css";
 import Typist from "react-typist";
+// import Benefits form './LandingComponents\Benefits.jsx';
+// import Landing from './LandingComponents/Benefits';
+import Benefits from "./LandingComponents/Benefits";
+import Vision from "./LandingComponents/Vision";
+import Creator from "./LandingComponents/Creator";
+import Footer from "./LandingComponents/Footer";
+
 
 export default function Landing({onHide}) {
   const backgroundImageStyle = {
@@ -24,6 +31,7 @@ export default function Landing({onHide}) {
   };
 
   return (
+    <>
     <div style={backgroundImageStyle}>
       <div style={logoStyle}></div>
       <section className="text-gray-600 body-font relative">
@@ -72,5 +80,17 @@ export default function Landing({onHide}) {
         </div>
       </section>
     </div>
+    <div className=" mt-[-100px]">
+    <div className="container align-center mt-[-100px]">
+      <Benefits />
+      <hr />
+      <Vision />
+      <hr />
+      <Creator />
+      <hr />
+      <Footer />
+      </div>
+      </div>
+      </>
   );
 }
