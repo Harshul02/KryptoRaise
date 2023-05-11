@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Sidebar, Navbar } from './components';
 import { CampaignDetails, CreateCampaign, Home, Profile, CampaignList } from './pages';
 import Landing from './pages/Landing';
+import ComponentPage from './pages/ComponentPage';
 
 const App = () => {
   const location = useLocation();
@@ -15,6 +16,7 @@ const App = () => {
 
   const [Search, setSearch] = useState("");
   const [showLandingPage, setShowLandingPage] = useState(false);
+  const [showCategoryPage,setshowCategoryPage] = useState(false);
 
   const backgroundImageStyle = {
     backgroundImage: `url(${opoy7})`,
@@ -26,16 +28,21 @@ const App = () => {
  
 
   const handleLandingPageDismiss = () => {
-    navigate('/dashboard');
+    navigate('/categories');
     setShowLandingPage(false);
+    setshowCategoryPage(true);
   };
 
   const handleLandingPage = () => {
     navigate('/');
     setShowLandingPage(true);
+    setshowCategoryPage(false);
   };
   useEffect(() => {
-    setShowLandingPage(location.pathname === '/');
+    setShowLandingPage(location.pathname==='/');
+  }, [location]);
+  useEffect(() => {
+    setshowCategoryPage(location.pathname==='/categories');
   }, [location]);
 
   return (
@@ -43,7 +50,11 @@ const App = () => {
       {showLandingPage && 
       <Landing onHide={handleLandingPageDismiss} />}
       
-      {!showLandingPage && (
+      {showCategoryPage &&
+      <ComponentPage/>}
+
+      
+      {!showLandingPage && !showCategoryPage && (
         <div className="relative sm:-8 p-4 min-h-screen flex flex-row" style={backgroundImageStyle}>
           <div className="sm:flex hidden relative">
             {isProfilePage ? null : <Sidebar hand = {handleLandingPage} />}
