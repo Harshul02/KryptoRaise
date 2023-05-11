@@ -3,8 +3,6 @@ import Land4 from "./land4.png";
 import Logo from "./krypti.png";
 import "animate.css/animate.min.css";
 import Typist from "react-typist";
-// import Benefits form './LandingComponents\Benefits.jsx';
-// import Landing from './LandingComponents/Benefits';
 import Benefits from "./LandingComponents/Benefits";
 import Vision from "./LandingComponents/Vision";
 import Creator from "./LandingComponents/Creator";
