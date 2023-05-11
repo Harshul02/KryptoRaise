@@ -63,10 +63,11 @@ const CampaignDetails = () => {
   }, [contract, address])
 
   const handleDonate = async () => {
+    console.log(address);
     setIsLoading(true);
     if(address){
       await donate(state.pId, amount, name);
-      navigate('/');
+      navigate('/Dashboard');
       setIsLoading(false);
       Swal.fire({
         title: 'Success',
