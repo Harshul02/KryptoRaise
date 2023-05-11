@@ -64,34 +64,43 @@ const CampaignDetails = () => {
 
   const handleDonate = async () => {
     setIsLoading(true);
-    if(address){
-      await donate(state.pId, amount, name);
-      navigate('/');
+    try {
+      if (address) {
+        await donate(state.pId, amount, name);
+        navigate('/dashboard');
+        setIsLoading(false);
+        Swal.fire({
+          title: 'Success',
+          text: 'Your Amount Has Successfully Reached The Creator',
+          icon: 'success',
+          customClass: {
+            container: 'my-swal-container',
+            title: 'my-swal-container swal-title',
+            content: ' my-swal-container swal-text',
+            confirmButton: 'my-swal-container swal-footer',
+            icon: 'my-swal-container swal-icon--success',
+          },
+        });
+      } else {
+        throw new Error('Please connect your MetaMask wallet to proceed.');
+      }
+    } catch (error) {
+      console.log(error);
       setIsLoading(false);
-      Swal.fire({
-        title: 'Success',
-        text: 'Your Amount Has Successfully Reached The Creator',
-        icon: 'success',
-        customClass: {
-          container: 'my-swal-container',
-          title: 'my-swal-container swal-title',
-          content: ' my-swal-container swal-text',
-          confirmButton:'my-swal-container swal-footer',
-          icon: 'my-swal-container swal-icon--success',
-        },
-      });
-    }
-    else{
       Swal.fire({
         title: 'Error',
-        text: 'Please connect your MetaMask wallet to proceed.',
+        text: error.message,
         icon: 'error',
       });
-      setIsLoading(false);
-      return;
     }
-
-  }
+  };
+ 
+  
+  
+  
+  
+  
+  
   
   const currentPageURl = window.location.href;
   return (
