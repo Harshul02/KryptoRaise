@@ -1,10 +1,11 @@
 import React, { useContext, createContext } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { useAddress, useContract, useMetamask, useContractWrite } from '@thirdweb-dev/react';
 import { ethers } from 'ethers';
 import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 
 const StateContext = createContext();
+
 
 export const StateContextProvider = ({ children }) => {
   const { contract } = useContract('0x5e30a5A44B5036f318Dad450A5B50b353e0F91a4');
@@ -12,7 +13,7 @@ export const StateContextProvider = ({ children }) => {
 
   const address = useAddress();
   const connect = useMetamask();
-  
+  const navigate = useNavigate();
   const publishCampaign = async (form) => {
     try {
       const data = await createCampaign([
@@ -55,19 +56,19 @@ export const StateContextProvider = ({ children }) => {
     const filteredCampaigns = allCampaigns.filter((campaign) => campaign.owner === address);
 
     return filteredCampaigns;
-  }
-//   const getUserCampaignsByCategory = async (categoryName) => {
-//     const allCampaigns = await getCampaigns();
+  }  
 
-//     const filteredCampaigns = allCampaigns.filter((campaign) => campaign.category === categoryName);
-
-//     return filteredCampaigns;
-// }
-
-  const donate = async (pId, amount,name) => {
-    const data = await contract.call('donateToCampaign', pId,name, { value: ethers.utils.parseEther(amount)});
-
-    return data;
+  const donate = async (pId, amount,name,) => {
+    try {
+      const data = await contract.call('donateToCampaign', pId,name, { value: ethers.utils.parseEther(amount)});
+      console.log(data);
+      return data;
+      
+    } catch (error) {
+      console.log(error);
+      throw new Error('Failed to donate to campaign!');
+    }
+    
   }
 
   const getDonations = async (pId) => {

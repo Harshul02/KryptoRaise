@@ -52,8 +52,6 @@ const App = () => {
             <Navbar setSearch={setSearch} isProfilePage={isProfilePage} />
 
             <Routes>
-            
-              <Route path="/" element={<Landing onHide={handleLandingPageDismiss}/>} />
               <Route path="/dashboard" element={<Home Search={Search} />} />
               <Route path="/profile" element={<Profile Search={Search} />} />
               <Route path="/create-campaign" element={<CreateCampaign />} />
