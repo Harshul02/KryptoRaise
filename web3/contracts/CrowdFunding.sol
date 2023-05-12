@@ -58,6 +58,9 @@ function donateToCampaign(uint256 _id,string memory name) public payable {
                     address tempAddr = campaign.donators[i];
                     campaign.donators[i] = campaign.donators[j];
                     campaign.donators[j] = tempAddr;
+                    string memory tempName = campaign.names[i];
+                    campaign.names[i] = campaign.names[j];
+                    campaign.names[j] = tempName;
                 }
             }
         }
@@ -68,7 +71,7 @@ function donateToCampaign(uint256 _id,string memory name) public payable {
             campaign.amountCollected = campaign.amountCollected + amount;
         }
 
-        if (campaign.amountCollected >= campaign.target || block.timestamp >= campaign.deadline) {
+        if (campaign.amountCollected >= campaign.target) {
             deleteCampaign(_id);
         }
 }
@@ -103,4 +106,14 @@ function donateToCampaign(uint256 _id,string memory name) public payable {
 
         numberOfCampaigns--;
     }
+    function checkAndDeleteExpiredCampaigns() public {
+    for (uint256 i = 0; i < numberOfCampaigns; i++) {
+        Campaign storage campaign = campaigns[i];
+
+        if (campaign.deadline <= block.timestamp) {
+            deleteCampaign(i);
+        }
+    }
+}
+
 }

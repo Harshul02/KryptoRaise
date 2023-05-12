@@ -61,8 +61,8 @@ const CampaignDetails = () => {
   const sendEmail = (name) => {
     const templateParams = {
       from_name: name,
-      to_name: 'ishravan919@gmail.com',
-      message: 'Thank you for your donation!',
+      to_name: 'aayushbisht501@gmail.com',
+      message: 'Lund ghuma kar nacho',
     };
 
     emailjs.send('service_dqcg2is', 'template_0llxrmp', templateParams, 'BfCgsWVwyRmO3za5e')
@@ -78,6 +78,7 @@ const CampaignDetails = () => {
   }, [contract, address])
 
   const handleDonate = async () => {
+    console.log(address);
     setIsLoading(true);
     try {
       if (address) {

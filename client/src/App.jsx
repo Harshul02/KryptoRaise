@@ -20,11 +20,11 @@ const App = () => {
   const [previousLocation, setPreviousLocation] = useState(null);
 
   const backgroundImageStyle = {
-    backgroundImage: `url(${opoy7})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
+    backgroundColor:'black'
   };
  
 
