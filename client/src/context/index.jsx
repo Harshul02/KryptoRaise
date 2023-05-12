@@ -8,7 +8,7 @@ const StateContext = createContext();
 
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract('0x5e30a5A44B5036f318Dad450A5B50b353e0F91a4');
+  const { contract } = useContract('0x304BCef0e7f2F9AC765fA36df0015468538D0dD8');
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
@@ -23,7 +23,8 @@ export const StateContextProvider = ({ children }) => {
         form.target,
         new Date(form.deadline).getTime(), // deadline,
         form.image,
-        form.category
+        form.category,
+        form.email
       ])
 
       console.log("contract call success", data)
@@ -44,6 +45,7 @@ export const StateContextProvider = ({ children }) => {
       amountCollected: ethers.utils.formatEther(campaign.amountCollected.toString()),
       image: campaign.image,
       category:campaign.category,
+      email:campaign.email,
       pId: i
     }));
 
