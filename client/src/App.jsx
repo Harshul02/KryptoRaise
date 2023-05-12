@@ -13,6 +13,7 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const isProfilePage = location.pathname === "/profile" || location.pathname === "/create-campaign" || location.pathname.startsWith("/campaign-details");
+  const isAllCategoryPage = location.pathname === "/categories";
 
   const [Search, setSearch] = useState("");
   const [showLandingPage, setShowLandingPage] = useState(false);
@@ -52,39 +53,36 @@ const App = () => {
 
   return (
     <>
+      
       {showLandingPage && 
-      <Routes>
-     <Route path='/' element =  {<Landing onHide={handleLandingPageDismiss} />}/>
-      </Routes>
+      
+     <Landing onHide={handleLandingPageDismiss} />
+     
       }
       
-      {showCategoryPage &&
-      <Routes>
-       <Route path = "/categories" element = {<ComponentPage/>}/>
-      </Routes>
-      
-      }
 
-      
-      {!showLandingPage && !showCategoryPage && (
+      {!showLandingPage && 
+     
         <div className="relative sm:-8 p-4 min-h-screen flex flex-row" style={backgroundImageStyle}>
           <div className="sm:flex hidden relative">
-            {isProfilePage ? null : <Sidebar hand = {handleLandingPage} />}
+            {isProfilePage || isAllCategoryPage ? null : <Sidebar hand = {handleLandingPage} />}
           </div>
           <div className="flex-1 max-sm:w-full  mx-auto sm:pr-5">
             <Navbar setSearch={setSearch} isProfilePage={isProfilePage} />
-
             <Routes>
-              
-              <Route path="/dashboard" element={<Home Search={Search} />} />
-              <Route path="/profile" element={<Profile Search={Search} />} />
-              <Route path="/create-campaign" element={<CreateCampaign />} />
-              <Route path="/campaign-details/:id" element={<CampaignDetails />} />
-              <Route path="/:categoryname" element={<CampaignList Search={Search} />} />
+            <Route path="/categories" element = {<ComponentPage/>}/>
+            <Route path="/dashboard" element={<Home Search={Search} />} />
+            <Route path="/profile" element={<Profile Search={Search} />} />
+            <Route path="/create-campaign" element={<CreateCampaign />} />
+            <Route path="/campaign-details/:id" element={<CampaignDetails />} />
+            <Route path="/:categoryname" element={<CampaignList Search={Search} />} />
+         
             </Routes>
+             
           </div>
         </div>
-      )}
+        }
+      
     </>
   );
 };
