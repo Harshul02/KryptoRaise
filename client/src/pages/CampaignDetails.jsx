@@ -104,7 +104,8 @@ const CampaignDetails = () => {
   
   const currentPageURl = window.location.href;
   return (
-    <div>
+    <div className='p-4 rounded-xl' style={{backgroundColor : "#06292D"}}>
+    {/* #282A3A */}
 <button onClick={() => navigate(-1)} className="bg-[#082c49] hover:bg-[#081c2c] text-white font-bold py-1 px-4 rounded">
   Back
 </button>
