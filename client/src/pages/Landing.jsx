@@ -9,7 +9,7 @@ import Creator from "./LandingComponents/Creator";
 import Footer from "./LandingComponents/Footer";
 
 
-export default function Landing({onHide}) {
+const Landing = ({onHide})=> {
   const backgroundImageStyle = {
     backgroundImage: `linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%), url(${Land4})`,
     backgroundSize: "cover",
@@ -56,7 +56,9 @@ export default function Landing({onHide}) {
                   textFillColor: "transparent",
                   textShadow: "2px 2px #000",
                 }}
-              >              <Typist avgTypingDelay={80} cursor={{ hideWhenDone: true }}>
+              >              
+              
+              <Typist avgTypingDelay={80} cursor={{ hideWhenDone: true }}>
 
                 And Hello to {" "}
                   <span style={{ color: "#60F", fontWeight:900,fontSize:"35px" }}>KryptoRaise!</span>
@@ -92,3 +94,5 @@ export default function Landing({onHide}) {
       </>
   );
 }
+
+export default Landing

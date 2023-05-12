@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function ComponentPage() {
+const ComponentPage = ()=> {
   return (
     <div>
         <section className="text-gray-600 body-font">
@@ -14,9 +14,7 @@ export default function ComponentPage() {
           <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260" />
         </a>
         <div className="mt-4">
-          {/* <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3> */}
           <h2 className="text-gray-900 title-font text-lg font-medium text-center">All Category</h2>
-          {/* <p className="mt-1">$16.00</p> */}
         </div>
         </Link>
       </div>
@@ -38,9 +36,7 @@ export default function ComponentPage() {
           <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="https://dummyimage.com/422x262" />
         </a>
         <div className="mt-4">
-          {/* <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3> */}
           <h2 className="text-gray-900 title-font text-lg font-medium text-center">Education and Learning</h2>
-          {/* <p className="mt-1">$12.00</p> */}
         </div>
         </Link>
       </div>
@@ -50,9 +46,7 @@ export default function ComponentPage() {
           <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="https://dummyimage.com/423x263" />
         </a>
         <div className="mt-4">
-          {/* <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3> */}
-          <h2 className="text-gray-900 title-font text-lg font-medium text-center">Health and Medical Expenses</h2>
-          {/* <p className="mt-1">$18.40</p> */}
+          <h2 className="text-gray-900 title-font text-lg font-medium text-center">Health and Medical Expenses</h2>  
         </div>
         </Link>
       </div>
@@ -128,3 +122,4 @@ export default function ComponentPage() {
     </div>
   )
 }
+export default ComponentPage
