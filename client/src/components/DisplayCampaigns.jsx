@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import "./navbar.css";
 
 
@@ -10,6 +10,8 @@ import { loader } from '../assets';
 
 const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isAllcategory = location.pathname === '/dashboard';
   const filteredCampaigns = campaigns.filter((campaign) =>{
     if(!categoryname && Search.toLowerCase()==''){
       return campaign
@@ -78,8 +80,8 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
         )}
       :
       
-      
-{!isLoading && filteredCampaigns.length>0 && (
+ 
+{!isLoading && isAllcategory && filteredCampaigns.length>0 &&(
   
          <div id='all' >
       
@@ -103,15 +105,15 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
       </div>  
       </div>
 )}
- 
-      
-{!isLoading && campaign1.length>0 &&(
+
+
+{!isLoading && !isAllcategory && campaign1.length>0 &&(
     
       <div>
         {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
       )}
-      :
+      : 
       { !isLoading && campaigns.length === 0 && (
           <p className="font-epilogue font-semibold text-[14px] leading-[30px] text-[#818183]">
             No Campaigns To Display
@@ -121,7 +123,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
     <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
-  {campaign1.map((campaign) => <FundCard 
+  { campaign1.map((campaign) => <FundCard 
     key={campaign.id}
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
@@ -132,8 +134,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
 )}
 
-     
-{!isLoading && campaign2.length>0 &&(
+{!isLoading && !isAllcategory && campaign2.length>0 &&(
 <div>
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -160,7 +161,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 </div>
 )}
 
-{!isLoading && campaign3.length>0 && ( 
+{!isLoading && !isAllcategory && campaign3.length>0 &&( 
 <div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -187,7 +188,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 </div>
 )}
 
-{!isLoading && campaign4.length>0 && (
+{!isLoading && !isAllcategory && campaign4.length>0 &&(
 <div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -217,7 +218,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
 )}
 
-{!isLoading && campaign5.length>0 &&(
+{!isLoading && !isAllcategory && campaign5.length>0 &&(
 
 <div >
 {isLoading &&(
@@ -250,7 +251,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 </div>
 )}
 
-{!isLoading && campaign6.length>0 && (
+{!isLoading && !isAllcategory && campaign6.length>0 &&(
 <div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -286,7 +287,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
 )}
 
-{!isLoading && campaign7.length>0 && (
+{!isLoading && !isAllcategory && campaign7.length>0 &&(
 <div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -316,7 +317,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 </div>
 )}
 
-{!isLoading && campaign8.length>0 && (
+{!isLoading && !isAllcategory && campaign8.length>0 &&(
 <div >
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -344,7 +345,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 </div>
 )}
 
-{!isLoading && campaign9.length>0 && (
+{!isLoading && !isAllcategory && campaign9.length>0 &&(
 <div id='others'>
 {isLoading &&(
          <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
@@ -371,8 +372,6 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
 </div>
 )}
-
-
 
 </div>
 
