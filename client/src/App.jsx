@@ -17,6 +17,7 @@ const App = () => {
   const [Search, setSearch] = useState("");
   const [showLandingPage, setShowLandingPage] = useState(false);
   const [showCategoryPage,setshowCategoryPage] = useState(false);
+  const [previousLocation, setPreviousLocation] = useState(null);
 
   const backgroundImageStyle = {
     backgroundRepeat: 'no-repeat',
@@ -38,20 +39,31 @@ const App = () => {
     setShowLandingPage(true);
     setshowCategoryPage(false);
   };
+  
+
+  
+ 
+ 
   useEffect(() => {
     setShowLandingPage(location.pathname==='/');
-  }, [location]);
-  useEffect(() => {
     setshowCategoryPage(location.pathname==='/categories');
   }, [location]);
+  
 
   return (
     <>
       {showLandingPage && 
-      <Landing onHide={handleLandingPageDismiss} />}
+      <Routes>
+     <Route path='/' element =  {<Landing onHide={handleLandingPageDismiss} />}/>
+      </Routes>
+      }
       
       {showCategoryPage &&
-      <ComponentPage/>}
+      <Routes>
+       <Route path = "/categories" element = {<ComponentPage/>}/>
+      </Routes>
+      
+      }
 
       
       {!showLandingPage && !showCategoryPage && (
@@ -63,6 +75,7 @@ const App = () => {
             <Navbar setSearch={setSearch} isProfilePage={isProfilePage} />
 
             <Routes>
+              
               <Route path="/dashboard" element={<Home Search={Search} />} />
               <Route path="/profile" element={<Profile Search={Search} />} />
               <Route path="/create-campaign" element={<CreateCampaign />} />

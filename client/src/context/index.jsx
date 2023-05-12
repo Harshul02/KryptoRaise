@@ -61,7 +61,6 @@ export const StateContextProvider = ({ children }) => {
   const donate = async (pId, amount,name,) => {
     try {
       const data = await contract.call('donateToCampaign', pId,name, { value: ethers.utils.parseEther(amount)});
-      console.log(data);
       return data;
       
     } catch (error) {

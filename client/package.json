@@ -9,6 +9,7 @@
     "deploy": "yarn build && npx thirdweb@latest upload dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@thirdweb-dev/react": "^3",
     "@thirdweb-dev/sdk": "^3",
     "animate.css": "^4.1.1",
