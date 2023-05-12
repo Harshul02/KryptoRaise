@@ -26,7 +26,7 @@ const Navbar = ({setSearch,isProfilePage}) => {
   const ispage = location.pathname ==="/" || location.pathname === "/profile" || location.pathname === "/create-campaign"|| 
   location.pathname.startsWith("/campaign-details");
 
-  const [isActive, setIsActive] = useState('');
+  const [isActive, setIsActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Category');
   const { connect, address } = useStateContext();
