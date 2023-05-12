@@ -2,7 +2,7 @@ import React from "react";
 import Land4 from "./land4.png";
 import Logo from "./krypti.png";
 import "animate.css/animate.min.css";
-import Typist from "react-typist";
+// import Typist from "react-typist";
 // import Benefits form './LandingComponents\Benefits.jsx';
 // import Landing from './LandingComponents/Benefits';
 import Benefits from "./LandingComponents/Benefits";
@@ -58,14 +58,15 @@ export default function Landing({onHide}) {
                   textFillColor: "transparent",
                   textShadow: "2px 2px #000",
                 }}
-              >              <Typist avgTypingDelay={80} cursor={{ hideWhenDone: true }}>
+              >              
+              {/* <Typist avgTypingDelay={80} cursor={{ hideWhenDone: true }}> */}
 
                 And Hello to {" "}
                   <span style={{ color: "#60F", fontWeight:900,fontSize:"35px" }}>KryptoRaise!</span>
-                  <Typist.Backspace count={12} delay={1000} />
+                  {/* <Typist.Backspace count={12} delay={1000} /> */}
                   <span style={{ color: "#60F", fontWeight: 900,fontSize:"35px" }}>KryptoRaise!</span>
 
-                  </Typist>
+                  {/* </Typist> */}
 
                 </h1>
               <div className="flex mt-8">
