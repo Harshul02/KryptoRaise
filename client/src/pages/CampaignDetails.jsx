@@ -71,7 +71,6 @@ const CampaignDetails = () => {
       )
       .then(
         (response) => {
-          alert("Your email sent to owner succesfully!");
           console.log("Email sent!", response.status, response.text);
         },
         (error) => {
@@ -96,7 +95,6 @@ const CampaignDetails = () => {
       )
       .then(
         (response) => {
-          alert("Your email sent to donator succesfully!");
           console.log("Email sent!", response.status, response.text);
         },
         (error) => {

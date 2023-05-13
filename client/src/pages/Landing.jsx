@@ -8,7 +8,7 @@ import Benefits from "./LandingComponents/Benefits";
 import Vision from "./LandingComponents/Vision";
 import Creator from "./LandingComponents/Creator";
 import Footer from "./LandingComponents/Footer";
-import Metamask from "./LandingComponents/Metamask";
+import Metamask from "./LandingComponents/MetaMask";
 
 import { Link } from 'react-scroll';
 
@@ -110,10 +110,10 @@ const Landing = ({onHide})=> {
           <Metamask />
           <hr />
           <Creator />
-          <hr />
         </div>
-        <Footer />
+        <hr />
         </section>
+        <Footer />
       </div>
     </>
   );
