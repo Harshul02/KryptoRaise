@@ -3,15 +3,13 @@ import Land4 from "./land4.png";
 import Logo from "./krypti.png";
 import "animate.css/animate.min.css";
 // import Typist from "react-typist";
-// import Benefits form './LandingComponents\Benefits.jsx';
-// import Landing from './LandingComponents/Benefits';
 import Benefits from "./LandingComponents/Benefits";
 import Vision from "./LandingComponents/Vision";
 import Creator from "./LandingComponents/Creator";
 import Footer from "./LandingComponents/Footer";
 
 
-export default function Landing({onHide}) {
+const Landing = ({onHide})=> {
   const backgroundImageStyle = {
     backgroundImage: `linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%), url(${Land4})`,
     backgroundSize: "cover",
@@ -59,6 +57,7 @@ export default function Landing({onHide}) {
                   textShadow: "2px 2px #000",
                 }}
               >              
+              
               {/* <Typist avgTypingDelay={80} cursor={{ hideWhenDone: true }}> */}
 
                 And Hello to {" "}
@@ -95,3 +94,5 @@ export default function Landing({onHide}) {
       </>
   );
 }
+
+export default Landing

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Sidebar, Navbar } from './components';
 import { CampaignDetails, CreateCampaign, Home, Profile, CampaignList } from './pages';
 import Landing from './pages/Landing';
+import ComponentPage from './pages/ComponentPage';
 
 const App = () => {
   const location = useLocation();
@@ -15,6 +16,8 @@ const App = () => {
 
   const [Search, setSearch] = useState("");
   const [showLandingPage, setShowLandingPage] = useState(false);
+  const [showCategoryPage,setshowCategoryPage] = useState(false);
+  const [previousLocation, setPreviousLocation] = useState(null);
 
   const backgroundImageStyle = {
     backgroundImage: `url(${opoy7})`,
@@ -26,24 +29,44 @@ const App = () => {
  
 
   const handleLandingPageDismiss = () => {
-    navigate('/dashboard');
+    navigate('/categories');
     setShowLandingPage(false);
+    setshowCategoryPage(true);
   };
 
   const handleLandingPage = () => {
     navigate('/');
     setShowLandingPage(true);
+    setshowCategoryPage(false);
   };
+  
+
+  
+ 
+ 
   useEffect(() => {
-    setShowLandingPage(location.pathname === '/');
+    setShowLandingPage(location.pathname==='/');
+    setshowCategoryPage(location.pathname==='/categories');
   }, [location]);
+  
 
   return (
     <>
       {showLandingPage && 
-      <Landing onHide={handleLandingPageDismiss} />}
+      <Routes>
+     <Route path='/' element =  {<Landing onHide={handleLandingPageDismiss} />}/>
+      </Routes>
+      }
       
-      {!showLandingPage && (
+      {showCategoryPage &&
+      <Routes>
+       <Route path = "/categories" element = {<ComponentPage/>}/>
+      </Routes>
+      
+      }
+
+      
+      {!showLandingPage && !showCategoryPage && (
         <div className="relative sm:-8 p-4 min-h-screen flex flex-row" style={backgroundImageStyle}>
           <div className="sm:flex hidden relative">
             {isProfilePage ? null : <Sidebar hand = {handleLandingPage} />}
@@ -52,6 +75,7 @@ const App = () => {
             <Navbar setSearch={setSearch} isProfilePage={isProfilePage} />
 
             <Routes>
+              
               <Route path="/dashboard" element={<Home Search={Search} />} />
               <Route path="/profile" element={<Profile Search={Search} />} />
               <Route path="/create-campaign" element={<CreateCampaign />} />

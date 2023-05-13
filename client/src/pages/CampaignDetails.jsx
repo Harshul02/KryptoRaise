@@ -7,6 +7,7 @@ import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { user,tagType } from '../assets';
 import Swal from 'sweetalert2';
+import emailjs from '@emailjs/browser'
 import {
   EmailIcon,
   FacebookIcon,
@@ -46,9 +47,9 @@ const CampaignDetails = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
+  const [email , setEmail] = useState('');
   const [name, setName] = useState(''); //change
   const [donators, setDonators] = useState([]);
-
   const remainingDays = daysLeft(state.deadline);
 
 
@@ -57,7 +58,21 @@ const CampaignDetails = () => {
 
     setDonators(data);
   }
+  const sendEmail = (name) => {
+    const templateParams = {
+      from_name: name,
+      to_name: 'ishravan919@gmail.com',
+      message: 'Thank you for your donation!',
+    };
 
+    emailjs.send('service_dqcg2is', 'template_0llxrmp', templateParams, 'BfCgsWVwyRmO3za5e')
+      .then((response) => {
+        alert("Your email sent to owner succesfully!")
+        console.log('Email sent!', response.status, response.text);
+      }, (error) => {
+        console.log('Email failed to send...', error);
+      });
+  };
   useEffect(() => {
     if(contract) fetchDonators();
   }, [contract, address])
@@ -81,6 +96,7 @@ const CampaignDetails = () => {
             icon: 'my-swal-container swal-icon--success',
           },
         });
+        sendEmail(name);
       } else {
         throw new Error('Please connect your MetaMask wallet to proceed.');
       }
@@ -104,8 +120,9 @@ const CampaignDetails = () => {
   
   const currentPageURl = window.location.href;
   return (
-    <div className='p-4 rounded-xl' style={{backgroundColor : "#06292D"}}>
+    <div className='p-4 rounded-xl' style={{backgroundImage: "linear-gradient(45deg, #000000, #ffffd0)"}}>
     {/* #282A3A */}
+    {/* backgroundColor : "#06292D" */}
 <button onClick={() => navigate(-1)} className="bg-[#082c49] hover:bg-[#081c2c] text-white font-bold py-1 px-4 rounded">
   Back
 </button>
@@ -209,6 +226,14 @@ const CampaignDetails = () => {
                 className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
+              />
+              <input 
+                type="email"
+                placeholder="Email"
+                step="0.01"
+                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px] mb-4"
+                value={email}
+                onChange={(e) => setName(e.target.value)}
               />
               
 
