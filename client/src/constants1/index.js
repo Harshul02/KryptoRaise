@@ -3,7 +3,7 @@ import {book1,environment,health,humanitarian,personal,social,tech,wildlife,othe
 export const navlinks = [
   
   {
-    name: 'book1',
+    name: 'Education and Learning',
     imgUrl: book1,
     id: 'edu',
     toolTipText:'Education and Learning',
@@ -11,7 +11,7 @@ export const navlinks = [
 
   },
   {  
-    name: 'environment',
+    name: 'Environmental Causes',
     imgUrl: environment,
     id: 'environment',
     toolTipText:'Environmental Causes',
@@ -19,7 +19,7 @@ export const navlinks = [
 
   },
   {
-    name: 'health',
+    name: 'Health and Medical Expenses',
     imgUrl: health,
     id: 'health',
     toolTipText:'Health and Medical Expenses',
@@ -27,7 +27,7 @@ export const navlinks = [
 
   },
   {
-    name: 'humanitarian',
+    name: 'Humanitarian Aid and Disaster Relief',
     imgUrl: humanitarian,
     id: 'humanitarian',
     toolTipText:'Humanitarian Aid',
@@ -36,7 +36,7 @@ export const navlinks = [
 
   },
   {
-    name: 'personal',
+    name: 'Personal and Family Emergencies',
     imgUrl: personal,
     id: 'personal',
     toolTipText:'Personal and Family Needs',
@@ -44,7 +44,7 @@ export const navlinks = [
 
   },
   {
-    name: 'social',
+    name: 'Social Causes and Activism',
     imgUrl: social,
     id: 'social',
     toolTipText:'Social Causes and Activism',
@@ -52,7 +52,7 @@ export const navlinks = [
 
   },
   {
-    name: 'tech',
+    name: 'Technology and Innovation',
     imgUrl: tech,
     id: 'tech',
     toolTipText:'Technology and Innovation',
@@ -60,7 +60,7 @@ export const navlinks = [
 
   },
   {
-    name: 'wildlife',
+    name: 'Wildlife and Animal Conservation',
     imgUrl: wildlife,
     id: 'wildlife',
     toolTipText:'Wildlife Conservation',
@@ -68,7 +68,7 @@ export const navlinks = [
 
   },
   {
-    name: 'others',
+    name: 'Others',
     imgUrl: others,
     id: 'others',
     toolTipText:'Others',
