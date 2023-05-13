@@ -159,9 +159,9 @@ const CreateCampaign = () => {
           <FormField 
             labelName="Email *"
             placeholder="Enter your email address"
-            inputType="text"
+            inputType="email"
             value={form.email}
-            handleChange={(e) => handleFormFieldChange('target', e)}
+            handleChange={(e) => handleFormFieldChange('email', e)}
           />
           
         </div>
