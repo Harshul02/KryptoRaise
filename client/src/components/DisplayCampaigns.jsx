@@ -101,7 +101,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
           {...campaign}
           handleClick={() => handleNavigate(campaign)}
         />)}
- <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+   
       </div>  
       </div>
 )}
@@ -128,7 +128,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
-           <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+             
 </div>
 </div>
 
@@ -155,7 +155,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
- <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+   
 </div>
 
 </div>
@@ -182,7 +182,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
-   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+     
 </div>
 
 </div>
@@ -211,7 +211,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
-   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+     
 </div>
 
 </div>
@@ -245,7 +245,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     handleClick={() => handleNavigate(campaign)}
     
   />)}
-   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+     
 </div>
 
 </div>
@@ -281,7 +281,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     handleClick={() => handleNavigate(campaign)}
    
   />)}
-   <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+     
 </div>
 </div>
 
@@ -309,7 +309,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
-  <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+    
   
 
 </div>
@@ -339,7 +339,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
-  <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+    
 </div>
 
 </div>
@@ -367,7 +367,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     {...campaign}
     handleClick={() => handleNavigate(campaign)}
   />)}
-  <hr className="my-8 mx-0 w-full" style={{ height: '2px', backgroundImage: 'linear-gradient(to right, transparent, #ccc, transparent)', border: 'none' }} />
+    
 </div>
 
 </div>
