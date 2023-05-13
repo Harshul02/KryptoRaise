@@ -21,7 +21,8 @@ const CreateCampaign = () => {
     target: '', 
     deadline: '',
     image: '',
-    category: ''
+    category: '',
+    email:''
   });
   const handleCaptchaChange = (response) => {
     setIsCaptchaFilled(true);
@@ -150,6 +151,17 @@ const CreateCampaign = () => {
             inputType="url"
             value={form.image}
             handleChange={(e) => handleFormFieldChange('image', e)}
+          />
+          
+          
+        </div>
+        <div className="flex flex-wrap gap-[40px]">
+          <FormField 
+            labelName="Email *"
+            placeholder="Enter your email address"
+            inputType="email"
+            value={form.email}
+            handleChange={(e) => handleFormFieldChange('email', e)}
           />
           
         </div>

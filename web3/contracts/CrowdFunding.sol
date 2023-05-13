@@ -14,13 +14,14 @@ contract CrowdFunding {
         uint256[] donations;
         string[] names;
         string category;
+        string email;
     }
 
     mapping(uint256 => Campaign) public campaigns;
 
     uint256 public numberOfCampaigns = 0;
 
-    function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image,string memory _category) public returns (uint256) {
+    function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target, uint256 _deadline, string memory _image,string memory _category,string memory _email) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
         require(_deadline > block.timestamp, "The deadline should be a date in the future.");
@@ -33,6 +34,8 @@ contract CrowdFunding {
         campaign.amountCollected = 0;
         campaign.image = _image;
         campaign.category = _category;
+        campaign.email = _email;
+
 
         numberOfCampaigns++;
 
@@ -58,6 +61,9 @@ function donateToCampaign(uint256 _id,string memory name) public payable {
                     address tempAddr = campaign.donators[i];
                     campaign.donators[i] = campaign.donators[j];
                     campaign.donators[j] = tempAddr;
+                    string memory tempName = campaign.names[i];
+                    campaign.names[i] = campaign.names[j];
+                    campaign.names[j] = tempName;
                 }
             }
         }
@@ -68,7 +74,7 @@ function donateToCampaign(uint256 _id,string memory name) public payable {
             campaign.amountCollected = campaign.amountCollected + amount;
         }
 
-        if (campaign.amountCollected >= campaign.target || block.timestamp >= campaign.deadline) {
+        if (campaign.amountCollected >= campaign.target) {
             deleteCampaign(_id);
         }
 }
@@ -103,4 +109,14 @@ function donateToCampaign(uint256 _id,string memory name) public payable {
 
         numberOfCampaigns--;
     }
+    function checkAndDeleteExpiredCampaigns() public {
+    for (uint256 i = 0; i < numberOfCampaigns; i++) {
+        Campaign storage campaign = campaigns[i];
+
+        if (campaign.deadline <= block.timestamp) {
+            deleteCampaign(i);
+        }
+    }
+}
+
 }

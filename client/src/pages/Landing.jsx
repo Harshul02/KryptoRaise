@@ -7,15 +7,18 @@ import Benefits from "./LandingComponents/Benefits";
 import Vision from "./LandingComponents/Vision";
 import Creator from "./LandingComponents/Creator";
 import Footer from "./LandingComponents/Footer";
+import MetaMask from "./LandingComponents/MetaMask";
+import { Link } from 'react-scroll';
 
 
 const Landing = ({onHide})=> {
   const backgroundImageStyle = {
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%), url(${Land4})`,
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,1) 90%), url(${Land4})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     minHeight: "100vh",
+    zIndex: 20,
   };
   const logoStyle = {
     height: "90px",
@@ -68,30 +71,49 @@ const Landing = ({onHide})=> {
                   {/* </Typist> */}
 
                 </h1>
-              <div className="flex mt-8">
-              <button className=" bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full" onClick={onHide}>
-  Get Started!
-</button>
-
-
+                
+                <div className="flex mt-8">
+                  <button
+                    className=" bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full"
+                    onClick={onHide}
+                  >
+                    Get Started!
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          <section id="section07" class="demo">
+            <a>
+            <Link to="section08" smooth={true}>
+
+              <span></span>
+              <span></span>
+              <span></span>
+              </Link>
+            </a>
+          </section>
+        </section>
+      </div>
+      <div className="mt-[-30px] bg-[#000000]" style={{ zIndex: 10 }}>
+        <section id="section08">
+        <div
+          className="container"
+          style={{ width: "90%", margin: " 0 auto", borderRadius: "50px" }}
+        >
+          <Benefits />
+          <hr />
+          <Vision />
+          <hr />
+          <MetaMask />
+          <hr />
+          <Creator />
         </div>
-      </section>
-    </div>
-    <div className=" mt-[-100px]">
-    <div className="container align-center mt-[-100px]">
-      <Benefits />
-      <hr />
-      <Vision />
-      <hr />
-      <Creator />
-      <hr />
-      <Footer />
+          <hr />
+        <Footer />
+        </section>
       </div>
-      </div>
-      </>
+    </>
   );
 }
 

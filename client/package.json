@@ -19,6 +19,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-router-dom": "^6.4.4",
     "react-router-hash-link": "^2.4.3",
+    "react-scroll": "^1.8.9",
     "react-share": "^4.4.1",
     "react-typist": "^2.0.5",
     "sweetalert2": "^11.7.3",
