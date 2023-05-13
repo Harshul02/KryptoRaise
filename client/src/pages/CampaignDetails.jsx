@@ -58,14 +58,16 @@ const CampaignDetails = () => {
 
     setDonators(data);
   }
-  const sendEmail = (name) => {
-    const templateParams = {
+  const sendEmail1 = (name,creator,Amount) => {
+    const templateParams1 = {
       from_name: name,
-      to_name: 'aayushbisht501@gmail.com',
-      message: 'Lund ghuma kar nacho',
+      to_name: creator,
+      message: `You Got a new Donation amount of ${Amount} from ${name}`,
     };
 
-    emailjs.send('service_dqcg2is', 'template_0llxrmp', templateParams, 'BfCgsWVwyRmO3za5e')
+    
+
+    emailjs.send('service_dqcg2is', 'template_0llxrmp', templateParams1, 'BfCgsWVwyRmO3za5e')
       .then((response) => {
         alert("Your email sent to owner succesfully!")
         console.log('Email sent!', response.status, response.text);
@@ -73,6 +75,23 @@ const CampaignDetails = () => {
         console.log('Email failed to send...', error);
       });
   };
+  const sendEmail2 = (name,email)=>{
+    const templateParams2 = {
+      Name:name,
+      from_Name:"Team KryptoRaise",
+      to_name:email,
+      message:"You Have successfully donated ! You Are a Legend My Friend"
+    };
+
+    emailjs.send('service_dqcg2is', 'template_wula2l2', templateParams2, 'BfCgsWVwyRmO3za5e')
+      .then((response) => {
+        alert("Your email sent to donator succesfully!")
+        console.log('Email sent!', response.status, response.text);
+      }, (error) => {
+        console.log('Email failed to send...', error);
+      });
+
+  }
   useEffect(() => {
     if(contract) fetchDonators();
   }, [contract, address])
@@ -97,7 +116,8 @@ const CampaignDetails = () => {
             icon: 'my-swal-container swal-icon--success',
           },
         });
-        sendEmail(name);
+        sendEmail1(name,state.email,amount);
+        sendEmail2(name,email)
       } else {
         throw new Error('Please connect your MetaMask wallet to proceed.');
       }
