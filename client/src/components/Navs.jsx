@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
- 
 
 import { logo, sun } from '../assets';
 import { navlinks } from '../constants';
@@ -52,18 +52,15 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 export default function Navs() {
     const navigate = useNavigate();
     const [isActive, setIsActive] = useState('');
+    const location = useLocation();
     useEffect(() => {
-      const activeLink = localStorage.getItem('activeLink');
-      if (activeLink) {
-        setIsActive(activeLink);
-      }
-    }, []);
-    const handleLinkClick = (link) => {
-      if (!link.disabled) {
-        setIsActive(link.name);
-        localStorage.setItem('activeLink', link.name);
-        navigate(link.link);
-      }
+      const activeLink = navlinks.find((link) => link.link === location.pathname);
+      setIsActive(activeLink ? activeLink.name : '');
+    }, [location]);
+  
+    const handleClick = (link) => {
+      setIsActive(link.name);
+      navigate(link.link);
     };
 
   return (
@@ -77,7 +74,11 @@ export default function Navs() {
               key={link.name}
               {...link}
               isActive={isActive}
-              handleClick={() => handleLinkClick(link)}
+              handleClick={() => {
+                if (!link.disabled) {
+                  handleClick(link);
+                }
+              }}
             />
           ))}
         </div>
