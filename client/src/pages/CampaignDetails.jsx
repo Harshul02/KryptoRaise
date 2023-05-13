@@ -142,7 +142,7 @@ const CampaignDetails = () => {
     }
   };
 
-  const currentPageURl = "http://34.131.198.148/dashboard";
+  const currentPageURl = "http://34.131.198.148";
   return (
     <div className="p-4 rounded-xl bg-black">
       {/* #282A3A */}
