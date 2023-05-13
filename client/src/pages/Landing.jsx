@@ -2,12 +2,12 @@ import React from "react";
 import Land4 from "./land4.png";
 import Logo from "./krypti.png";
 import "animate.css/animate.min.css";
-import Typist from "react-typist";
-import "./landing.css";
+// import Typist from "react-typist";
 import Benefits from "./LandingComponents/Benefits";
 import Vision from "./LandingComponents/Vision";
 import Creator from "./LandingComponents/Creator";
 import Footer from "./LandingComponents/Footer";
+import MetaMask from "./LandingComponents/MetaMask";
 import { Link } from 'react-scroll';
 
 
@@ -61,14 +61,14 @@ const Landing = ({onHide})=> {
                 }}
               >              
               
-              <Typist avgTypingDelay={80} cursor={{ hideWhenDone: true }}>
+              {/* <Typist avgTypingDelay={80} cursor={{ hideWhenDone: true }}> */}
 
                 And Hello to {" "}
                   <span style={{ color: "#60F", fontWeight:900,fontSize:"35px" }}>KryptoRaise!</span>
-                  <Typist.Backspace count={12} delay={1000} />
+                  {/* <Typist.Backspace count={12} delay={1000} /> */}
                   <span style={{ color: "#60F", fontWeight: 900,fontSize:"35px" }}>KryptoRaise!</span>
 
-                  </Typist>
+                  {/* </Typist> */}
 
                 </h1>
                 
@@ -105,9 +105,11 @@ const Landing = ({onHide})=> {
           <hr />
           <Vision />
           <hr />
-          <Creator />
+          <MetaMask />
           <hr />
+          <Creator />
         </div>
+          <hr />
         <Footer />
         </section>
       </div>

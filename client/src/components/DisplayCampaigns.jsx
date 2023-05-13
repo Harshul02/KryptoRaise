@@ -18,43 +18,42 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
     }
 
   });
-  const count = filteredCampaigns.length;
   const campaign1 = campaigns.filter((campaign)=>{
     return campaign.category==="Environmental Causes" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count1 = campaign1.length;
+  
   const campaign2 = campaigns.filter((campaign)=>{
     return  campaign.category === "Education and Learning" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count2 = campaign2.length;
+  
   const campaign3 = campaigns.filter((campaign)=>{
     return  campaign.category === "Health and Medical Expenses" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count3 = campaign3.length;
+  
   const campaign4 = campaigns.filter((campaign)=>{
     return  campaign.category === "Humanitarian Aid and Disaster Relief" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count4 = campaign4.length;
+  
   const campaign5 = campaigns.filter((campaign)=>{
     return  campaign.category === "Personal and Family Emergencies" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count5 = campaign5.length;
+  
   const campaign6 = campaigns.filter((campaign)=>{
     return  campaign.category === "Social Causes and Activism" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count6 = campaign6.length;
+  
   const campaign7 = campaigns.filter((campaign)=>{
     return  campaign.category === "Technology and Innovation" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count7 = campaign7.length;
+  
   const campaign8 = campaigns.filter((campaign)=>{
     return  campaign.category === "Wildlife and Animal Conservation" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count8 = campaign8.length;
+  
   const campaign9 = campaigns.filter((campaign)=>{
     return  campaign.category === "Others" && campaign.title.toLowerCase().includes(Search.toLowerCase())
   })
-  const count9 = campaign9.length;
+  
 
 
 
@@ -86,7 +85,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
          <div id='all' >
       
       <h1 className="font-epilogue font-semibold text-18 text-white text-left">
-  {title} ({count})
+  {title}
 </h1>
 
 
@@ -119,7 +118,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
             No Campaigns To Display
           </p>
         )} 
-        <h1 className="font-epilogue font-semibold text-[18px]  text-white text-left">Environmental Causes ({count1})</h1>
+        <h1 className="font-epilogue font-semibold text-[18px]  text-white text-left">Environmental Causes</h1>
 
     <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
@@ -146,7 +145,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
           </p>
         )}
   
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Education and Learning ({count2})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Education and Learning</h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
@@ -173,7 +172,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
           </p>
         )}
 
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Health and Medical Expenses ({count3})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Health and Medical Expenses</h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
@@ -199,7 +198,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
              No Campaigns To Display
           </p>
         )}
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Humanitarian Aid and Disaster Relief ({count4})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Humanitarian Aid and Disaster Relief</h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
   
@@ -234,7 +233,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
 
 
 
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Personal and Family Emergencies ({count5})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Personal and Family Emergencies </h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
   
@@ -262,7 +261,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
              No Campaigns To Display
           </p>
         )}
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Social Causes and Activism ({count6})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Social Causes and Activism </h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
   {isLoading && (
@@ -299,7 +298,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
           </p>
         )}
 
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Technology and Innovation ({count7})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Technology and Innovation </h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
@@ -329,7 +328,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
           </p>
         )}
 
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Wildlife and Animal Conservation ({count8})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Wildlife and Animal Conservation </h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
@@ -357,7 +356,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
           </p>
         )}
 
-<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Others ({count9})</h1>
+<h1 className="font-epilogue font-semibold text-[18px] text-white text-left">Others </h1>
 
 <div className="flex flex-wrap mt-[20px] gap-[26px]">
  
