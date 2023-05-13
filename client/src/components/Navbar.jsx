@@ -20,13 +20,13 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 )
 
 
-const Navbar = ({setSearch,isProfilePage}) => {
+const Navbar = ({setSearch,isProfilePage, Searchbar}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const ispage = location.pathname ==="/" || location.pathname === "/profile" || location.pathname === "/create-campaign"|| 
   location.pathname.startsWith("/campaign-details");
 
-  const [isActive, setIsActive] = useState('dashboard');
+  const [isActive, setIsActive] = useState('');
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Category');
   const { connect, address } = useStateContext();
@@ -58,9 +58,10 @@ const Navbar = ({setSearch,isProfilePage}) => {
   <div class="search-button">
     <img src={search} alt="search" />
   </div>
-  <input type="text" class="search-input " onChange={handleChange} placeholder="Search for campaigns" />
+  <input type="text" class="search-input " onChange={handleChange}  disabled={Searchbar} placeholder="Search for campaigns" />
 <span className='text-white py-1 mr-2 font-semibold '>Search</span>
 </div>
+
 
   
      

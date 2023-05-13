@@ -14,7 +14,8 @@ const App = () => {
   const navigate = useNavigate();
   const isProfilePage = location.pathname === "/profile" || location.pathname === "/create-campaign" || location.pathname.startsWith("/campaign-details");
   const isAllCategoryPage = location.pathname === "/categories";
-
+  
+  const Searchbar = location.pathname === "/categories";
   const [Search, setSearch] = useState("");
   const [showLandingPage, setShowLandingPage] = useState(false);
   const [showCategoryPage,setshowCategoryPage] = useState(false);
@@ -65,10 +66,10 @@ const App = () => {
      
         <div className="relative sm:-8 p-4 min-h-screen flex flex-row" style={backgroundImageStyle}>
           <div className="sm:flex hidden relative">
-            {isProfilePage || isAllCategoryPage ? null : <Sidebar hand = {handleLandingPage} />}
+            {isProfilePage ? null : <Sidebar hand = {handleLandingPage} iscategorypage={isAllCategoryPage}/>}
           </div>
           <div className="flex-1 max-sm:w-full  mx-auto sm:pr-5">
-            <Navbar setSearch={setSearch} isProfilePage={isProfilePage} />
+            <Navbar setSearch={setSearch} isProfilePage={isProfilePage} Searchbar = {Searchbar} />
             <Routes>
             <Route path="/categories" element = {<ComponentPage/>}/>
             <Route path="/dashboard" element={<Home Search={Search} />} />
