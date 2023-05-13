@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
-import './campignDetails.css';
-import './CreateCampaign.css';
-import { useStateContext } from '../context';
-import { CountBox, CustomButton, Loader } from '../components';
-import { calculateBarPercentage, daysLeft } from '../utils';
-import { user,tagType } from '../assets';
-import Swal from 'sweetalert2';
-import emailjs from '@emailjs/browser'
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./campignDetails.css";
+import "./CreateCampaign.css";
+import { useStateContext } from "../context";
+import { CountBox, CustomButton, Loader } from "../components";
+import { calculateBarPercentage, daysLeft } from "../utils";
+import { user, tagType } from "../assets";
+import Swal from "sweetalert2";
+import emailjs from "@emailjs/browser";
 import {
   EmailIcon,
   FacebookIcon,
@@ -15,7 +15,7 @@ import {
   LinkedinIcon,
   TelegramIcon,
   TwitterIcon,
-  WhatsappIcon
+  WhatsappIcon,
 } from "react-share";
 import {
   EmailShareButton,
@@ -24,10 +24,8 @@ import {
   LinkedinShareButton,
   TelegramShareButton,
   TwitterShareButton,
-  WhatsappShareButton
+  WhatsappShareButton,
 } from "react-share";
-
-
 
 const CampaignDetails = () => {
   const { state } = useLocation();
@@ -37,7 +35,7 @@ const CampaignDetails = () => {
       if (highlightElement) {
         highlightElement.classList.add("highlight-end");
       }
-    }, 2000); 
+    }, 2000);
 
     return () => clearTimeout(highlightTimeout);
   }, []);
@@ -46,55 +44,69 @@ const CampaignDetails = () => {
   const { donate, getDonations, contract, address } = useStateContext();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [amount, setAmount] = useState('');
-  const [email , setEmail] = useState('');
-  const [name, setName] = useState(''); //change
+  const [amount, setAmount] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState(""); //change
   const [donators, setDonators] = useState([]);
   const remainingDays = daysLeft(state.deadline);
-
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);
 
     setDonators(data);
-  }
-  const sendEmail1 = (name,creator,Amount) => {
+  };
+  const sendEmail1 = (name, creator, Amount) => {
     const templateParams1 = {
       from_name: name,
       to_name: creator,
       message: `You Got a new Donation amount of ${Amount} from ${name}`,
     };
 
-    
-
-    emailjs.send('service_dqcg2is', 'template_0llxrmp', templateParams1, 'BfCgsWVwyRmO3za5e')
-      .then((response) => {
-        alert("Your email sent to owner succesfully!")
-        console.log('Email sent!', response.status, response.text);
-      }, (error) => {
-        console.log('Email failed to send...', error);
-      });
+    emailjs
+      .send(
+        "service_dqcg2is",
+        "template_0llxrmp",
+        templateParams1,
+        "BfCgsWVwyRmO3za5e"
+      )
+      .then(
+        (response) => {
+          alert("Your email sent to owner succesfully!");
+          console.log("Email sent!", response.status, response.text);
+        },
+        (error) => {
+          console.log("Email failed to send...", error);
+        }
+      );
   };
-  const sendEmail2 = (name,email)=>{
+  const sendEmail2 = (name, email) => {
     const templateParams2 = {
-      Name:name,
-      from_Name:"Team KryptoRaise",
-      to_name:email,
-      message:"You Have successfully donated ! You Are a Legend My Friend"
+      Name: name,
+      from_Name: "Team KryptoRaise",
+      to_name: email,
+      message: "You Have successfully donated ! You Are a Legend My Friend",
     };
 
-    emailjs.send('service_dqcg2is', 'template_wula2l2', templateParams2, 'BfCgsWVwyRmO3za5e')
-      .then((response) => {
-        alert("Your email sent to donator succesfully!")
-        console.log('Email sent!', response.status, response.text);
-      }, (error) => {
-        console.log('Email failed to send...', error);
-      });
-
-  }
+    emailjs
+      .send(
+        "service_dqcg2is",
+        "template_wula2l2",
+        templateParams2,
+        "BfCgsWVwyRmO3za5e"
+      )
+      .then(
+        (response) => {
+          alert("Your email sent to donator succesfully!");
+          console.log("Email sent!", response.status, response.text);
+        },
+        (error) => {
+          console.log("Email failed to send...", error);
+        }
+      );
+  };
   useEffect(() => {
-    if(contract) fetchDonators();
-  }, [contract, address])
+    if (contract) fetchDonators();
+  }, [contract, address]);
 
   const handleDonate = async () => {
     console.log(address);
@@ -102,67 +114,78 @@ const CampaignDetails = () => {
     try {
       if (address) {
         await donate(state.pId, amount, name);
-        navigate('/dashboard');
+        navigate("/dashboard");
         setIsLoading(false);
         Swal.fire({
-          title: 'Success',
-          text: 'Your Amount Has Successfully Reached The Creator',
-          icon: 'success',
+          title: "Success",
+          text: "Your Amount Has Successfully Reached The Creator",
+          icon: "success",
           customClass: {
-            container: 'my-swal-container',
-            title: 'my-swal-container swal-title',
-            content: ' my-swal-container swal-text',
-            confirmButton: 'my-swal-container swal-footer',
-            icon: 'my-swal-container swal-icon--success',
+            container: "my-swal-container",
+            title: "my-swal-container swal-title",
+            content: " my-swal-container swal-text",
+            confirmButton: "my-swal-container swal-footer",
+            icon: "my-swal-container swal-icon--success",
           },
         });
-        sendEmail1(name,state.email,amount);
-        sendEmail2(name,email)
+        sendEmail1(name, state.email, amount);
+        sendEmail2(name, email);
       } else {
-        throw new Error('Please connect your MetaMask wallet to proceed.');
+        throw new Error("Please connect your MetaMask wallet to proceed.");
       }
     } catch (error) {
       console.log(error);
       setIsLoading(false);
       Swal.fire({
-        title: 'Error',
+        title: "Error",
         text: error.message,
-        icon: 'error',
+        icon: "error",
       });
     }
   };
- 
-  
-  
-  
-  
-  
-  
-  
-  const currentPageURl = window.location.href;
+
+  const currentPageURl = "http://34.131.198.148/dashboard";
   return (
-    <div className='p-4 rounded-xl' style={{backgroundImage: "linear-gradient(45deg, #000000, #ffffd0)"}}>
-    {/* #282A3A */}
-    {/* backgroundColor : "#06292D" */}
-<button onClick={() => navigate(-1)} className="bg-[#082c49] hover:bg-[#081c2c] text-white font-bold py-1 px-4 rounded">
-  Back
-</button>
+    <div className="p-4 rounded-xl bg-black">
+      {/* #282A3A */}
+      {/* backgroundColor : "#06292D" */}
+      <button
+        onClick={() => navigate(-1)}
+        className="bg-[#082c49] hover:bg-[#081c2c] text-white font-bold py-1 px-4 rounded"
+      >
+        Back
+      </button>
 
       {isLoading && <Loader />}
-    
 
       <div className="w-full flex md:flex-row flex-col mt-4 gap-[30px]">
-  <div className="flex-1 flex-col">
-    <img src={state.image} alt="campaign" className="w-full h-[410px] object-cover rounded-xl" style={{ objectFit: 'cover' }} />
-    <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
-      <div className="absolute h-full bg-[#4acd8d]" style={{ width: `${calculateBarPercentage(state.target, state.amountCollected)}%`, maxWidth: '100%' }}>
-      </div>
-    </div>
-  </div>
+        <div className="flex-1 flex-col">
+          <img
+            src={state.image}
+            alt="campaign"
+            className="w-full h-[410px] object-cover rounded-xl"
+            style={{ objectFit: "cover" }}
+          />
+          <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
+            <div
+              className="absolute h-full bg-[#4acd8d]"
+              style={{
+                width: `${calculateBarPercentage(
+                  state.target,
+                  state.amountCollected
+                )}%`,
+                maxWidth: "100%",
+              }}
+            ></div>
+          </div>
+        </div>
 
         <div className="flex md:w-[150px] w-full flex-wrap justify-between gap-[30px]">
           <CountBox title="Days Left" value={remainingDays} />
-          <CountBox title={`Raised of ${state.target}`} value={state.amountCollected} />
+          <CountBox
+            title={`Raised of ${state.target}`}
+            value={state.amountCollected}
+          />
           <CountBox title="Total Backers" value={donators.length} />
         </div>
       </div>
@@ -170,69 +193,111 @@ const CampaignDetails = () => {
       <div className="mt-[40px] flex lg:flex-row flex-col gap-5">
         <div className="flex-[2] flex flex-col gap-[40px]">
           <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Creator</h4>
+            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">
+              Creator
+            </h4>
 
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
               <div className="w-[42px] h-[42px] flex items-center justify-center rounded-full bg-[#2c2f32] cursor-pointer">
-                <img src={user} alt="user" className="w-[100%] h-[100%] object-contain"/>
+                <img
+                  src={user}
+                  alt="user"
+                  className="w-[100%] h-[100%] object-contain"
+                />
               </div>
               <div>
-                <h4 className="font-epilogue font-semibold text-[14px] text-white break-all">{state.owner}</h4>
+                <h4 className="font-epilogue font-semibold text-[14px] text-white break-all">
+                  {state.owner}
+                </h4>
               </div>
             </div>
             <div className="flex flex-row items-center mt-4">
-          <img src={tagType} alt="tag" className="w-[17px] h-[17px] object-contain"/>
-          <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">{state.category}</p>
-        </div>
+              <img
+                src={tagType}
+                alt="tag"
+                className="w-[17px] h-[17px] object-contain"
+              />
+              <p className="ml-[12px] mt-[2px] font-epilogue font-medium text-[12px] text-[#808191]">
+                {state.category}
+              </p>
+            </div>
           </div>
-          
+
           <div>
-            <h4 className="font-epilogue font-semibold text-2xl text-white uppercase">Story</h4>
+            <h4 className="font-epilogue font-semibold text-2xl text-white uppercase">
+              Story
+            </h4>
 
-              <div className="mt-[20px] ">
-                <p className="font-epilogue font-normal text-[18px] text-[#808191] leading-[26px] text-justify">{state.description}</p>
-              </div>
+            <div className="mt-[20px] ">
+              <p className="font-epilogue font-normal text-[18px] text-[#808191] leading-[26px] text-justify">
+                {state.description}
+              </p>
+            </div>
           </div>
 
-    <div>
-  <h4 className="font-epilogue font-semibold text-2xl text-white uppercase mb-4">Top Donators</h4>
-  <div className="flex flex-col gap-4 overflow-x-auto text-center  p-4 rounded-xl">
-    {donators.length>0 ? (
-  <div className="flex justify-between items-center bg-[#0c2c46] text-white rounded-2xl px-6 py-2">
-    <p className="font-epilogue font-bold text-lg">Name</p>
-    <p className="font-epilogue font-bold text-lg">Address</p>
-    <p className="font-epilogue font-bold text-lg">Donation Amount</p>
-  </div>): ("")}
-  {donators.length > 0 ? donators.map((item, index) => (
-    <div key={`${item.donator}-${index}`} className="flex justify-between items-center bg-[#15446a] hover:bg-[#113a5b] rounded-full px-6 py-2">
-      <div className="flex items-center">
-        <span className="text-white text-lg font-bold mr-2">{index + 1}</span>
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
-          <span className="text-white text-xl font-bold">{item.donatorName.charAt(0)}</span>
-        </div>
-        <span className="font-epilogue font-normal text-lg text-white ml-4  ">{item.donatorName}</span>
-      </div>
-      <p className="font-epilogue font-normal text-lg text-white  ">{item.donator}</p>
-      <p className="font-epilogue font-normal text-lg text-white  ">{item.donation} ETH</p>
-    </div>
-  )) : (
-    <p className="font-epilogue font-normal text-lg text-gray-600 text-justify py-4">No donations yet. Be the first one!</p>
-  )}
-</div>
-
-
-</div>
+          <div>
+            <h4 className="font-epilogue font-semibold text-2xl text-white uppercase mb-4">
+              Top Donators
+            </h4>
+            <div className="flex flex-col gap-4 overflow-x-auto text-center  p-4 rounded-xl">
+              {donators.length > 0 ? (
+                <div className="flex justify-between items-center bg-[#0c2c46] text-white rounded-2xl px-6 py-2">
+                  <p className="font-epilogue font-bold text-lg">Name</p>
+                  <p className="font-epilogue font-bold text-lg">Address</p>
+                  <p className="font-epilogue font-bold text-lg">
+                    Donation Amount
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+              {donators.length > 0 ? (
+                donators.map((item, index) => (
+                  <div
+                    key={`${item.donator}-${index}`}
+                    className="flex justify-between items-center bg-[#15446a] hover:bg-[#113a5b] rounded-full px-6 py-2"
+                  >
+                    <div className="flex items-center">
+                      <span className="text-white text-lg font-bold mr-2">
+                        {index + 1}
+                      </span>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
+                        <span className="text-white text-xl font-bold">
+                          {item.donatorName.charAt(0)}
+                        </span>
+                      </div>
+                      <span className="font-epilogue font-normal text-lg text-white ml-4  ">
+                        {item.donatorName}
+                      </span>
+                    </div>
+                    <p className="font-epilogue font-normal text-lg text-white  ">
+                      {item.donator}
+                    </p>
+                    <p className="font-epilogue font-normal text-lg text-white  ">
+                      {item.donation} ETH
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="font-epilogue font-normal text-lg text-gray-600 text-justify py-4">
+                  No donations yet. Be the first one!
+                </p>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="flex-1">
-          <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>   
+          <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">
+            Fund
+          </h4>
 
           <div className="mt-[20px] flex flex-col p-4 bg-[#081c2c] rounded-[10px]">
             <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center font-bold text-[#f2f2f5]">
               Fund the campaign
             </p>
             <div className="mt-[30px]">
-            <input 
+              <input
                 type="text"
                 placeholder="Name"
                 step="0.01"
@@ -240,7 +305,7 @@ const CampaignDetails = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <input 
+              <input
                 type="number"
                 placeholder="ETH 0.1"
                 step="0.01"
@@ -248,7 +313,7 @@ const CampaignDetails = () => {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
-              <input 
+              <input
                 type="email"
                 placeholder="Email"
                 step="0.01"
@@ -256,12 +321,15 @@ const CampaignDetails = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-             
-              
 
               <div className="my-[20px] p-4 bg-[#071420] rounded-[10px]">
-                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
-                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p>
+                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">
+                  Back it because you believe in it.
+                </h4>
+                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">
+                  Support the project for no reward, just because it speaks to
+                  you.
+                </p>
               </div>
 
               <CustomButton
@@ -271,59 +339,70 @@ const CampaignDetails = () => {
                 handleClick={handleDonate}
               />
             </div>
-            <div  id='sharingiscaring' className='highlight my-3 py-2 px-3'>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase ">Share</h4>
+            <div id="sharingiscaring" className="highlight my-3 py-2 px-3">
+              <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase ">
+                Share
+              </h4>
 
               <div className="mt-[20px]">
-                <FacebookShareButton 
-                url={currentPageURl}
-                quote={"Please donate to help poor people"}
-                hashtag="#donateforpoor"
-                className="hover hover:scale-125 duration-300">
-                 <FacebookIcon size={40} round={true} />
-              </FacebookShareButton>
+                <FacebookShareButton
+                  url={currentPageURl}
+                  quote={"Please donate to help poor people"}
+                  hashtag="#donateforpoor"
+                  className="hover hover:scale-125 duration-300"
+                >
+                  <FacebookIcon size={40} round={true} />
+                </FacebookShareButton>
 
-              <EmailShareButton
-              url={currentPageURl}
-              subject = {"Crowd Funding"}
-              body={`${state.description}\nPlease donate to help other people\nDonate here: `}
-              separator={''}
-              className="hover hover:scale-125 mx-4 duration-300">
-                <EmailIcon size={40} round={true} />
-              </EmailShareButton>
+                <EmailShareButton
+                  url={currentPageURl}
+                  subject={"Crowd Funding"}
+                  body={`${state.description}\nPlease donate to help other people\nDonate here: `}
+                  separator={""}
+                  className="hover hover:scale-125 mx-4 duration-300"
+                >
+                  <EmailIcon size={40} round={true} />
+                </EmailShareButton>
 
-              <TelegramShareButton
-              url = {currentPageURl}
-              title = {"Please donate for " + state.owner+ "\n" + state.description}
-              summary={state.description} 
-              className="hover hover:scale-125 duration-300">
-                <TelegramIcon size={40} round={true} />
-              </TelegramShareButton>
+                <TelegramShareButton
+                  url={currentPageURl}
+                  title={
+                    "Please donate for " +
+                    state.owner +
+                    "\n" +
+                    state.description
+                  }
+                  summary={state.description}
+                  className="hover hover:scale-125 duration-300"
+                >
+                  <TelegramIcon size={40} round={true} />
+                </TelegramShareButton>
 
-              <TwitterShareButton
-              url={currentPageURl+ " \n"}
-              title={"Please donate for " + state.owner+"\n"}
-              via={"MyFunding\n"}
-              hashtags={["donateforpoor"]}
-              className="hover hover:scale-125 mx-4 duration-300">
-                <TwitterIcon size={40} round={true} />
-              </TwitterShareButton>
+                <TwitterShareButton
+                  url={currentPageURl + " \n"}
+                  title={"Please donate for " + state.owner + "\n"}
+                  via={"MyFunding\n"}
+                  hashtags={["donateforpoor"]}
+                  className="hover hover:scale-125 mx-4 duration-300"
+                >
+                  <TwitterIcon size={40} round={true} />
+                </TwitterShareButton>
 
-              <WhatsappShareButton
-              url={currentPageURl}
-              title = {`${state.description}\nPlease donate for ${state.owner}\nDonate here: `}
-              separator={" "}
-              className="hover hover:scale-125 duration-300">
-                <WhatsappIcon size={40} round={true} />
-              </WhatsappShareButton>
+                <WhatsappShareButton
+                  url={currentPageURl}
+                  title={`${state.description}\nPlease donate for ${state.owner}\nDonate here: `}
+                  separator={" "}
+                  className="hover hover:scale-125 duration-300"
+                >
+                  <WhatsappIcon size={40} round={true} />
+                </WhatsappShareButton>
               </div>
-    </div>
+            </div>
           </div>
         </div>
       </div>
-     
     </div>
-  )
-}
+  );
+};
 
-export default CampaignDetails
+export default CampaignDetails;
