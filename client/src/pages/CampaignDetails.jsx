@@ -8,6 +8,8 @@ import { calculateBarPercentage, daysLeft } from "../utils";
 import { user, tagType } from "../assets";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
+import axios from 'axios';
+
 import {
   EmailIcon,
   FacebookIcon,
@@ -49,6 +51,10 @@ const CampaignDetails = () => {
   const [name, setName] = useState(""); //change
   const [donators, setDonators] = useState([]);
   const remainingDays = daysLeft(state.deadline);
+  const [currencyValue, setCurrencyValue] = useState('');
+  const [selectedCurrency, setSelectedCurrency] = useState('usd');
+  const [ethValue, setEthValue] = useState('');
+  const [conversionRate, setConversionRate] = useState(null);
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);
@@ -105,6 +111,31 @@ const CampaignDetails = () => {
   useEffect(() => {
     if (contract) fetchDonators();
   }, [contract, address]);
+
+  useEffect(() => {
+    const fetchConversionRate = async () => {
+      try {
+        const response = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=${selectedCurrency}`);
+        setConversionRate(response.data.ethereum[selectedCurrency]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchConversionRate();
+  }, [selectedCurrency]);
+
+  const handleCurrencyValueChange = (event) => {
+    const value = event.target.value;
+    setCurrencyValue(value);
+    if (conversionRate) {
+      setEthValue((value / conversionRate).toFixed(4));
+    }
+  };
+
+  const handleSelectedCurrencyChange = (event) => {
+    setSelectedCurrency(event.target.value.toLowerCase());
+  };
 
   const handleDonate = async () => {
     console.log(address);
@@ -319,6 +350,37 @@ const CampaignDetails = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <div className="flex flex-row-4 mt-[10px] gap-[4px]">
+              
+        <select name="currency" id="currency" className="w-xl py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px] bg-transparent"  value={selectedCurrency} onChange={handleSelectedCurrencyChange}>
+          <option value="usd" className="bg-[#081c2c] text-white">USD</option>
+          <option value="eur" className="bg-[#081c2c] text-white">EUR</option>
+          <option value="gbp" className="bg-[#081c2c] text-white">GBP</option>
+          <option value="jpy" className="bg-[#081c2c] text-white">JPY</option>
+          <option value="inr" className="bg-[#081c2c] text-white">INR</option>
+          {/* Add more options for other currencies */}
+        </select>
+
+        <input
+  type="number"
+  
+  step="0.01"
+  className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
+  name="currencyValue"
+  value={currencyValue} 
+  onChange={handleCurrencyValueChange}
+/>
+
+<span className="conversion-symbol center text-white mt-[10px]">=</span>
+<input
+  type="text"
+  placeholder="ETH value"
+  step="0.01"
+  className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
+  value={ethValue} 
+  disabled
+/>
+</div>
 
               <div className="my-[20px] p-4 bg-[#071420] rounded-[10px]">
                 <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">
