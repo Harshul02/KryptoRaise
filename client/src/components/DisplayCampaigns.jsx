@@ -13,9 +13,9 @@ const DisplayCampaigns = ({ title, isLoading, campaigns,Search,categoryname}) =>
   const location = useLocation();
   const isAllcategory = location.pathname === '/dashboard';
   const filteredCampaigns = campaigns.filter((campaign) =>{
-    if(!categoryname && Search.toLowerCase()==''){
-      return campaign
-    }
+  
+      return campaign.title.toLowerCase().includes(Search.toLowerCase())
+    
 
   });
   const campaign1 = campaigns.filter((campaign)=>{
