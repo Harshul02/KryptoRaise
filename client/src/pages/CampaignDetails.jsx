@@ -319,6 +319,43 @@ const CampaignDetails = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <div className="flex flex-row-4 mt-[10px] gap-[4px]">
+              {/* <input
+  type="number"
+  placeholder="Currency value"
+  step="0.01"
+  className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
+  // value={currencyValue}
+  // onChange={(e) => setCurrencyValue(e.target.value)}
+/> */}
+{/* <label htmlFor="currency" className="">Select currency:</label> */}
+        <select name="currency" id="currency" className="w-xl py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px] bg-transparent">
+          <option value="usd" className="bg-[#081c2c] text-white">USD</option>
+          <option value="eur" className="bg-[#081c2c] text-white">EUR</option>
+          <option value="gbp" className="bg-[#081c2c] text-white">GBP</option>
+          <option value="jpy" className="bg-[#081c2c] text-white">JPY</option>
+          {/* Add more options for other currencies */}
+        </select>
+
+        <input
+  type="number"
+  placeholder="Currency value"
+  step="0.01"
+  className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
+  // value={currencyValue}
+  // onChange={(e) => setCurrencyValue(e.target.value)}
+/>
+{/* <p className="conversion-symbol"><=></p> */}
+<span className="conversion-symbol center text-white mt-[10px]">=</span>
+<input
+  type="number"
+  placeholder="ETH value"
+  step="0.01"
+  className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
+  // value={ethValue}
+  // onChange={(e) => setEthValue(e.target.value)}
+/>
+</div>
 
               <div className="my-[20px] p-4 bg-[#071420] rounded-[10px]">
                 <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">
