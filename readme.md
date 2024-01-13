@@ -3,6 +3,13 @@
 
  A blockchain-based crowdfunding application developed as part of a collaborative project for "Solving for India
 Hackathon 2023".
+
+# Demo
+
+https://github.com/Harshul02/KryptoRaise/assets/100745475/99dbdada-ed10-45cb-bff8-2f22c5c65df0
+
+
+
 ## 📄Index
 
 - [About](#about-the-project)
